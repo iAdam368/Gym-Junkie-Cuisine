@@ -1,5 +1,9 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 @media (min-width: 768px) {
@@ -8,12 +12,39 @@ html {
   }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
 
 body {
   margin-bottom: 60px;
 }
 
+
+/* Navigation bar concepts gathered from W3Schools */
+/* Class for the navigation bar rectangle */
+.navbar {
+    background-color: grey;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 20;
+    border-radius: 7px;
+    margin-left: 5px;
+}
+
+/* Changes colour of the navigation bar item when hovered over the inactive pages, code adapted from W3Schools */
+.navbar a:hover:not(.active) {
+    background-color: #ffcc00;
+    font-weight: 500;
+    border-radius: 7px;
+}
+
+/* Offsets the spacing "under" the navigation bar, as it has a different z-index */
+.navbar-spacing {
+    margin-top: 60px;
+}
+
+/* Formatting for the logo picture */
+.logo-pic-formatting {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}

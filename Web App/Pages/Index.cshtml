@@ -1,34 +1,35 @@
 ﻿@page
-@model IndexModel
-@{
-    ViewData["Title"] = "Welcome";
-}
+<head>
+    @model IndexModel
+    @{
+        ViewData["Title"] = "Welcome";
+    }
+</head>
 
-<div class="text-center">
-    <h1 class="display-4">Come in & Taste</h1>
-    <img src="@Url.Content("~/img/Gym-Kitchen-Branding-Logo.png")" alt="Gym kitchen logo" width="1400" height="900">
-</div>
-<p>TESTING REPUBLISHING</p>
-<h1></h1> <!-- Remove these -->
-<div></div>
-<div></div>
+<body>
 
-<div>
-    <!-- Add class and styling -->
-    <h2>Crispy Shredded Chicken</h2>
-    <img src="@Url.Content("~/img/Crispy-Chilli-Chicken.jpeg")" alt="Crispy chilli chicken on a plate" width="700" height="500">
-    <p>Try this takeaway favourite served with rice, or simply on its own as part of a buffet-style meal. 
-        It can work as a main course or starter to share. 
-        Crispy fried shredded chicken and crunchy vegetables tossed with very light sweet, sour and savoury seasoning sauce. 
-        This dish is very quick and easy to make at home. 
-        If you like spicy, you can add a bit of chilli oil in the stir fry sauce. 
-        Serve with steamed rice or stir fry noodles or fried rice would go well with this dish. 
-        You can add some green stir fry dish on the side too. 
-        The recipe is very similar to my popular Crispy Shredded Beef. 
-        Many of you have asked about crispy shredded chicken after trying my crispy shredded beef recipe. 
-        So I made this dish for everyone who wanted to try with chicken. 
-        Very light and delicious chicken dish that both adult and kid love.
-        Learn more about this dish <a href="https://www.bbcgoodfood.com/recipes/crispy-shredded-chicken">here</a>.</p>
-    <p>Image <a href="https://mymorningmocha.com/crispy-chilli-chicken/">reference</a>.</p>
-    <p>Ask: css other than site.css & layout styling html + css? </p> <!-- Remove this -->
-</div>
+    <div class="text-center">
+        <h1 class="display-4">Come in & Taste</h1>
+        <img src="@Url.Content("~/img/Gym-Kitchen-Branding-Logo.png")" alt="Gym kitchen logo" class="logo-pic-formatting">
+    </div>
+
+    <div>
+        <!-- Add class and styling -->
+        <h2>Crispy Shredded Chicken</h2>
+        <img src="@Url.Content("~/img/Crispy-Chilli-Chicken.jpeg")" alt="Crispy chilli chicken on a plate" width="700" height="500">
+        <p>
+            Give this popular takeout dish a try with a side of rice or savor it on its own as a part of a buffet-style meal. 
+            Whether you're looking for a main course or a shareable starter, this dish fits the bill perfectly. 
+            It features crispy fried shredded chicken and crisp vegetables coated in a delicate sweet, sour, and savory sauce. 
+            If you prefer a bit of heat, you can opt for some chili oil in the stir-fry sauce, or go for the milder option. 
+            It pairs beautifully with steamed rice, stir-fry noodles, or fried rice. 
+            This recipe closely resembles the well-loved Crispy Shredded Beef dish. 
+            It's designed for those seeking a high-protein, low-calorie option, offering a light and delectable chicken dish that appeals to both adults and kids alike.
+            Learn more about this dish <a href="https://www.bbcgoodfood.com/recipes/crispy-shredded-chicken">here</a>.</p>
+        <p>Image <a href="https://mymorningmocha.com/crispy-chilli-chicken/">reference</a>.</p>
+    
+        <!-- Ask: css other than site.css & layout styling html + css? - Remove this -->
+
+    </div>
+
+</body>
