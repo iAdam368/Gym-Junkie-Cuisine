@@ -35,13 +35,17 @@ body {
     border-radius: 7px;
     margin-left: 10px;
     margin-right: 10px;
+}
 
+/* Makes the drop down menu icon lighter, increasing contrast so that it is easier to see */
+.custom-toggler.navbar-toggler {
+    border-color: white;
 }
 
 /* Alters the color of the navigation bar item when it is hovered over, code adapted from W3Schools */
 .navbar a:hover:not(.active) {
     background-color: #ffae00;
-    font-weight: 500;
+    text-shadow: 1px 0px 3px white;
     border-radius: 7px;
 }
 
