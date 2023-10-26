@@ -1,3 +1,4 @@
+/* HTML page formatting */
 html {
     font-size: 14px;
     position: relative;
@@ -14,7 +15,7 @@ html {
 
 /* Main content formatting */
 body {
-    margin-bottom: 60px;
+    margin-bottom: 0px;
     margin-left: 0px;
     padding-left: 0px;
 }
@@ -22,12 +23,12 @@ body {
 /* Navigation bar concepts gathered from W3Schools */
 /* Class to format for the navigation bar rectangle */
 .navbar {
-    background-color: black;
+    background-color: red;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 20;
-    border-radius: 7px;
+    border-radius: 0px 0px 7px 7px;
 }
 
 /* Individual item/block of the navigation bar */
@@ -60,3 +61,28 @@ body {
     height: 100%;
     position: relative;
 }
+
+/* Formatting for the footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 30px;
+}
+
+/* Rounds the top-left and top-right corners of a container */
+.round-corner-top {
+    border-radius: 7px 7px 0px 0px;
+}
+
+/* Social media icon formatting for the footer */
+.fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
