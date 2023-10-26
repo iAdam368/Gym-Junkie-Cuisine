@@ -15,9 +15,14 @@ html {
 
 /* Main content formatting */
 body {
-    margin-bottom: 0px;
-    margin-left: 0px;
+    margin: 0;
     padding-left: 0px;
+}
+
+/* Creates enough spacing so that the footer can be seen at the bottom of the page */
+/* Code adapted from StackOverflow user Natalia Larrieux (2016) */
+.content-spacing {
+    min-height: calc(100vh - 40px);
 }
 
 /* Navigation bar concepts gathered from W3Schools */
@@ -69,6 +74,7 @@ body {
     width: 100%;
     white-space: nowrap;
     line-height: 30px;
+    margin-top: -200px;
 }
 
 /* Rounds the top-left and top-right corners of a container */
