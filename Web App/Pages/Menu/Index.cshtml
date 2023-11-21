@@ -14,31 +14,31 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FoodItems[0].FoodName)
+                @Html.DisplayNameFor(model => model.FoodItem[0].FoodName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FoodItems[0].FoodDescription)
+                @Html.DisplayNameFor(model => model.FoodItem[0].FoodDescription)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FoodItems[0].CategoryOfFood)
+                @Html.DisplayNameFor(model => model.FoodItem[0].CategoryOfFood)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FoodItems[0].Specification)
+                @Html.DisplayNameFor(model => model.FoodItem[0].Specification)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FoodItems[0].IsAvailable)
+                @Html.DisplayNameFor(model => model.FoodItem[0].IsAvailable)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FoodItems[0].Price)
+                @Html.DisplayNameFor(model => model.FoodItem[0].Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FoodItems[0].ImagePath)
+                @Html.DisplayNameFor(model => model.FoodItem[0].ImagePath)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.FoodItems) {
+@foreach (var item in Model.FoodItem) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FoodName)
