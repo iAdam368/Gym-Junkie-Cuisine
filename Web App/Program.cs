@@ -25,6 +25,16 @@ else
     app.UseMigrationsEndPoint();
 }
 
+// Creates a database for context if it doesn't exist
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var context = services.GetRequiredService<Web_AppContext>();
+    context.Database.EnsureCreated();
+    //DbInitializer.Initialize(context);
+}
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
