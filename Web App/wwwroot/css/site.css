@@ -51,8 +51,9 @@ body {
 /* Alters the color of the navigation bar item when it is hovered over, code adapted from W3Schools */
 .navbar a:hover:not(.active) {
     background-color: #ffae00;
-    text-shadow: 1px 0px 3px white;
+    text-shadow: 1px 0px 3px black;
     border-radius: 7px;
+    color: black !important; /* Code adapted from StackOverflow user Rvervuurt */
 }
 
 /* Offsets the spacing "under" the navigation bar, as it has a different z-index */
