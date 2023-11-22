@@ -1,60 +1,75 @@
 ﻿@page
 @model Web_App.Pages.Menu.DetailsModel
 
-@{
-    ViewData["Title"] = "Details";
-}
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Menu Item Details</h1>
+<head>
+    @{
+        ViewData["Title"] = "Details";
+    }
+</head>
 
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.FoodName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.FoodName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.FoodDescription)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.FoodDescription)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.CategoryOfFood)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.CategoryOfFood)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.Specification)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.Specification)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.IsAvailable)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.IsAvailable)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.Price)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.ImagePath)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.ImagePath)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.FoodItem?.FoodID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+<body>
+
+    <div class="content-spacing">
+
+        <h1>Menu Item Details</h1>
+
+        <div>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.FoodName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.FoodName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.FoodDescription)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.FoodDescription)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.CategoryOfFood)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.CategoryOfFood)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.Specification)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.Specification)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.IsAvailable)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.IsAvailable)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.Price)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.Price)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.ImagePath)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.ImagePath)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a asp-page="./Edit" asp-route-id="@Model.FoodItem?.FoodID">Edit</a> |
+            <a asp-page="./Index">Back to List</a>
+        </div>
+    
+    </div>
+
+</body>
+
+</html>

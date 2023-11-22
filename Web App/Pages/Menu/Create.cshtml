@@ -1,13 +1,22 @@
 ﻿@page
 @model Web_App.Pages.Menu.CreateModel
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
 @{
     ViewData["Title"] = "Create";
 }
+</head>
 
-<h1>Create</h1>
 
-<h4>FoodItem</h4>
+<body>
+
+<div class="content-spacing">
+
+<h1>Add a New Menu Item</h1>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -62,3 +71,9 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+</div>
+
+</body>
+
+</html>

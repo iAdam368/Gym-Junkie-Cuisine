@@ -1,64 +1,76 @@
 ﻿@page
 @model Web_App.Pages.Menu.DeleteModel
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
 @{
     ViewData["Title"] = "Delete";
 }
+</head>
 
-<h1>Delete</h1>
+<body>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>FoodItem</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.FoodName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.FoodName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.FoodDescription)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.FoodDescription)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.CategoryOfFood)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.CategoryOfFood)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.Specification)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.Specification)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.IsAvailable)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.IsAvailable)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.Price)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodItem.ImagePath)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodItem.ImagePath)
-        </dd>
-    </dl>
+    <div class="content-spacing">
+
+        <h1>Are you sure you want to delete this menu item?</h1>
+        <div>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.FoodName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.FoodName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.FoodDescription)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.FoodDescription)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.CategoryOfFood)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.CategoryOfFood)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.Specification)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.Specification)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.IsAvailable)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.IsAvailable)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.Price)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.Price)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FoodItem.ImagePath)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FoodItem.ImagePath)
+                </dd>
+            </dl>
     
-    <form method="post">
-        <input type="hidden" asp-for="FoodItem.FoodID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
-</div>
+            <form method="post">
+                <input type="hidden" asp-for="FoodItem.FoodID" />
+                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                <a asp-page="./Index">Back to List</a>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
