@@ -1,6 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using Web_App.Data;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -31,8 +35,13 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
 
     var context = services.GetRequiredService<Web_AppContext>();
-    context.Database.EnsureCreated();
-    //DbInitializer.Initialize(context);
+    try { 
+        context.Database.EnsureCreated();
+        //DbInitializer.Initialize(context);
+    }
+    catch (SqlException) {
+        // SQL Database Exception - cannot connect to the database server (probably a VPN or connection issue)
+    }
 }
 
 app.UseHttpsRedirection();
