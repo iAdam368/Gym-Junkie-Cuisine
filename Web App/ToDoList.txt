@@ -1,4 +1,5 @@
-Increase the string size of food description in the data model and ERD
+Rename Menu folder and MenuPage
 Create a search feature for the menu
+Increase the string size of food description in the data model and ERD
 Display menu as tiles
 Desktop item
