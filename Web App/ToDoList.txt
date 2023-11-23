@@ -1,0 +1,4 @@
+Increase the string size of food description in the data model and ERD
+Create a search feature for the menu
+Display menu as tiles
+Desktop item

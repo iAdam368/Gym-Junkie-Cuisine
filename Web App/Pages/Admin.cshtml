@@ -1,0 +1,29 @@
+﻿@page
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @model Web_App.Pages.Menu.AdminModel
+    @{
+        ViewData["Title"] = "Admin Features";
+    }
+</head>
+
+<body>
+
+    <div class="content-spacing">
+        <h1>@ViewData["Title"]</h1>
+        <p>See the admin features below:</p>
+
+        <h4>Menu Options</h4>
+        <ul>
+            <li> <a asp-page="/Menu/Index">View, Edit & Delete Dishes</a> </li>
+            <li> <a asp-page="/Menu/Create">Add a New Dish</a> </li>
+        </ul>
+
+    </div>
+
+</body>
+
+</html>
