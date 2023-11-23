@@ -13,8 +13,32 @@
 <body>
 
     <div class="content-spacing">
+
         <h1>@ViewData["Title"]</h1>
-        <p>See all of the menu information here...</p>
+        <p>See all of the menu information below:</p>
+
+        <div class="text-center">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tblFoodItems in Model.FoodItem)
+                    {
+                    <tr>
+                        <td>@tblFoodItems.FoodName</td>
+                        <td>@tblFoodItems.FoodDescription</td>
+                        <td>@tblFoodItems.Price</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
     </div>
 
 </body>
