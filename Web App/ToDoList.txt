@@ -1,4 +1,4 @@
-Rename Menu folder and MenuPage
+Adjust Menu CRUD page table titles -Not fixed Edit page
 Create a search feature for the menu
 Increase the string size of food description in the data model and ERD
 Display menu as tiles
