@@ -61,6 +61,11 @@ body {
     margin-top: 60px;
 }
 
+/* Remove text formatting/decoration */
+.no-formatting {
+    text-decoration: none !important;
+}
+
 /* Formatting for the logo picture *** implement a logo */
 .responsive-picture {
     width: 100%;

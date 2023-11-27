@@ -15,8 +15,8 @@
     <div class="content-spacing">
 
         <h1>Edit a Menu Item</h1>
+        <hr/>
 
-        <hr />
         <div class="row">
             <div class="col-md-4">
                 <form method="post">
@@ -57,9 +57,11 @@
                         <input asp-for="FoodItem.ImagePath" class="form-control" />
                         <span asp-validation-for="FoodItem.ImagePath" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-primary" />
-                    </div>
+                    <p>
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                        </div>
+                    </p>
                 </form>
             </div>
         </div>
