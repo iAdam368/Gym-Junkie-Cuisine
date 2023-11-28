@@ -14,7 +14,16 @@
 
     <div class="content-spacing">
 
-        <h1>@ViewData["Title"]</h1>
+        <h1>Menu Information</h1>
+
+        <h4>Search</h4>
+        <p>
+            <form method="post">
+                <div> <input asp-for="Search"/> </div>
+                <button class="btn btn-primary" type="submit" asp-page-handler="Search">Submit</button>
+            </form>
+        </p>
+
         <p>See all of the menu information below:</p>
 
         <div class="text-center">
