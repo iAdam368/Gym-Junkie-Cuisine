@@ -41,7 +41,8 @@
                     <tr>
                         <td>@tblFoodItems.FoodName</td>
                         <td>@tblFoodItems.FoodDescription</td>
-                        <td>@tblFoodItems.Price</td>
+                        <!-- Displaying the price in pounds with two decimal prices, code adapted from Microsoft's ASP.NET website -->
+                        <td>@string.Format("£{0:N2}", tblFoodItems.Price)</td>
                     </tr>
                     }
                 </tbody>
