@@ -66,6 +66,11 @@ body {
     text-decoration: none !important;
 }
 
+/* Capitalises every first letter of a word in a sentence */
+.capitalise-words {
+    text-transform: capitalize;
+}
+
 /* Formatting for the logo picture *** implement a logo */
 .responsive-picture {
     width: 100%;

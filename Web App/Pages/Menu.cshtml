@@ -39,7 +39,7 @@
                     @foreach (var tblFoodItems in Model.FoodItem)
                     {
                     <tr>
-                        <td>@tblFoodItems.FoodName</td>
+                        <td class="capitalise-words">@tblFoodItems.FoodName</td>
                         <td>@tblFoodItems.FoodDescription</td>
                         <!-- Displaying the price in pounds with two decimal prices, code adapted from Microsoft's ASP.NET website -->
                         <td>@string.Format("£{0:N2}", tblFoodItems.Price)</td>

@@ -1,6 +1,5 @@
 Adjust Menu CRUD page table titles -Not fixed Edit page
-Create a search feature for the menu
+Format table in Menu page
 Move the content spacing class to layout page - apply .content-spacing to <body> tag
 Increase the string size of food description in the data model and ERD
 Display menu as tiles
-Desktop item
