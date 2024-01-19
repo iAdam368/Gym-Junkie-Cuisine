@@ -1,7 +1,7 @@
 ALTER TABLE FoodItem ADD ImageDescription varchar(250), ImageData varBinary(MAX)
 Add this code to the database to create new rows for the database
 Databse info: User ID=user_db_2214148_co5227;Password=P@ssword"
-
+Also, it's Week 9 - slide 17
 
 Adjust Menu CRUD page table titles -Not fixed Edit page
 Format table in Menu page
