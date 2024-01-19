@@ -33,6 +33,25 @@
                         <th>Dish</th>
                         <th>Description</th>
                         <th>Price</th>
+                        <th>@Html.DisplayNameFor(model => model.FoodItem[0].ImageData)</th>
+                    @foreach (var item in Model.FoodItem) {
+                        <td>
+                            @{
+                                try
+                                {
+                                    <td>
+                                        <img src="@string.Format("data:image/jpg;based64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription" />
+                                    </td>
+                                }
+                                catch
+                                {
+                                    <td>
+                                        <img class="img-thumb" src="~/img/no-image.jpg" alt="No image provided" />
+                                    </td>
+                                }
+                            }
+                        </td>
+                    }
                     </tr>
                 </thead>
                 <tbody>

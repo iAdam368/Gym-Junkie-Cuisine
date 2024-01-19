@@ -20,6 +20,7 @@ namespace Web_App.Models
         [Column(TypeName = "Money")]
         public Nullable<decimal> Price { get; set; }
         [StringLength(255)]
-        public string ImagePath { get; set; }
+        public string ImageDescription { get; set; }
+        public byte[] ImageData { get; set; }
     }
 }

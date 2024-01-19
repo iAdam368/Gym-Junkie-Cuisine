@@ -36,6 +36,16 @@ namespace Web_App.Pages.Menu
                 return Page();
             }
 
+          foreach (var file in Request.Form.Files)
+            {
+                MemoryStream ms = new MemoryStream();
+                file.CopyTo(ms);
+                FoodItem.ImageData = ms.ToArray();
+                
+                ms.Close();
+                ms.Dispose();
+            }
+
             _context.FoodItems.Add(FoodItem);
             await _context.SaveChangesAsync();
 
