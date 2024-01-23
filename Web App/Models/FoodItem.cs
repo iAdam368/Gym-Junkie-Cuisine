@@ -7,9 +7,8 @@ namespace Web_App.Models
     {
         [Key]
         public int FoodID { get; set; }
-        [StringLength(30)]
         public string FoodName { get; set; }
-        [StringLength(200)]
+        [StringLength(100)]
         public string FoodDescription { get; set; }
         [StringLength(20)]
         public string CategoryOfFood { get; set; }

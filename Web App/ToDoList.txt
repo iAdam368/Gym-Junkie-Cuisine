@@ -1,10 +1,8 @@
-ALTER TABLE FoodItem ADD ImageDescription varchar(250), ImageData varBinary(MAX)
-Add this code to the database to create new rows for the database
-Databse info: User ID=user_db_2214148_co5227;Password=P@ssword"
-Also, it's Week 9 - slide 17
+Check img file path for the no image in for menu image display
 
 Adjust Menu CRUD page table titles -Not fixed Edit page
 Format table in Menu page
 Move the content spacing class to layout page - apply .content-spacing to <body> tag
 Increase the string size of food description in the data model and ERD
+Change ERD to include 
 Display menu as tiles

@@ -46,9 +46,11 @@
                         Price
                     </th>
                     <th>
-                        Image File Path
+                        Image Description
                     </th>
-                    <th></th>
+                    <th>
+                        Image
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -74,6 +76,9 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ImageDescription)
+                    </td>
+                    <td>
+                        Image Data Hidden
                     </td>
                     <td>
                         <a asp-page="./Edit" asp-route-id="@item.FoodID">Edit</a> |

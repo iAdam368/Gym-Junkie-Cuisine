@@ -33,25 +33,7 @@
                         <th>Dish</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>@Html.DisplayNameFor(model => model.FoodItem[0].ImageData)</th>
-                    @foreach (var item in Model.FoodItem) {
-                        <td>
-                            @{
-                                try
-                                {
-                                    <td>
-                                        <img src="@string.Format("data:image/jpg;based64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription" />
-                                    </td>
-                                }
-                                catch
-                                {
-                                    <td>
-                                        <img class="img-thumb" src="~/img/no-image.jpg" alt="No image provided" />
-                                    </td>
-                                }
-                            }
-                        </td>
-                    }
+                        <th>Image</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,6 +44,18 @@
                         <td>@tblFoodItems.FoodDescription</td>
                         <!-- Displaying the price in pounds with two decimal prices, code adapted from Microsoft's ASP.NET website -->
                         <td>@string.Format("£{0:N2}", tblFoodItems.Price)</td>
+                        <td>
+                            @{
+                            try
+                            {
+                            <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(@tblFoodItems.ImageData))" alt="@tblFoodItems.ImageDescription" />
+                            }
+                            catch
+                            {
+                            <img class="img-thumb" src="~/img/no-image.jpg" alt="No image provided" />
+                            } 
+                            }
+                        </td>
                     </tr>
                     }
                 </tbody>
