@@ -9,8 +9,7 @@ namespace Web_App.Data
 {
     public class Web_AppContext : DbContext
     {
-        public Web_AppContext (DbContextOptions<Web_AppContext> options)
-            : base(options)
+        public Web_AppContext (DbContextOptions<Web_AppContext> options) : base(options)
         {
         }
 

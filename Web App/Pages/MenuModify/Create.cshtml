@@ -59,7 +59,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="FoodItem.ImageData" class="control-label"></label>
-                <input type="file" id="file1" name="file1" multiple="multiple" />
+                <input type="file" id="file1" name="ImageData" />
+                <span asp-validation-for="FoodItem.ImageData" class="text-danger"></span>
             </div>
             <p>
 

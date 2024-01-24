@@ -48,7 +48,7 @@
                             @{
                             try
                             {
-                            <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(@tblFoodItems.ImageData))" alt="@tblFoodItems.ImageDescription" />
+                            <img src="@string.Format("data:image/jpg;base64,{0}", @tblFoodItems.ImageDataAsBase64)" alt="@tblFoodItems.ImageDescription" />
                             }
                             catch
                             {

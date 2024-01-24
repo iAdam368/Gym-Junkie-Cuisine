@@ -1,8 +1,10 @@
-Check img file path for the no image in for menu image display
 
-Adjust Menu CRUD page table titles -Not fixed Edit page
-Format table in Menu page
+
+Reimplement image display and edit 
+
 Move the content spacing class to layout page - apply .content-spacing to <body> tag
-Increase the string size of food description in the data model and ERD
-Change ERD to include 
-Display menu as tiles
+Format Menu item page display - display menu as tiles
+
+--- ERD
+Increase the string size of variables in ERD
+Change ERD to include ImageData row and edit

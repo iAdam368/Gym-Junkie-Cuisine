@@ -14,6 +14,13 @@ namespace Web_App.Pages.Menu
     {
         private readonly Web_App.Data.Web_AppContext _context;
 
+
+
+        [BindProperty]
+        public FoodItem FoodItem { get; set; }
+
+
+
         public CreateModel(Web_App.Data.Web_AppContext context)
         {
             _context = context;
@@ -24,8 +31,7 @@ namespace Web_App.Pages.Menu
             return Page();
         }
 
-        [BindProperty]
-        public FoodItem FoodItem { get; set; }
+
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -36,6 +42,28 @@ namespace Web_App.Pages.Menu
                 return Page();
             }
 
+
+
+        byte[] bytes = null;
+
+        if (FoodItem.ImageData != null) 
+        {
+            using (Stream fs = FoodItem.ImageData.OpenReadStream())
+            {
+                using(BinaryReader br = new BinaryReader(fs)) 
+                {
+                    bytes = br.ReadBytes((Int32)fs.Length);
+                }
+            }
+            FoodItem.ImageDataAsBase64 = Convert.ToBase64String(bytes, 0, bytes.Length);
+        }
+        _context.FoodItems.Add(FoodItem);
+        await _context.SaveChangesAsync();
+
+        return RedirectToPage("./Index");
+
+
+            /*
           foreach (var file in Request.Form.Files)
             {
                 MemoryStream ms = new MemoryStream();
@@ -49,7 +77,7 @@ namespace Web_App.Pages.Menu
             _context.FoodItems.Add(FoodItem);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index"); */
         }
     }
 }
