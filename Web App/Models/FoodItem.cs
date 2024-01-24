@@ -21,9 +21,7 @@ namespace Web_App.Models
         public Nullable<decimal> Price { get; set; }
         [StringLength(255)]
         public string ImageDescription { get; set; }
-        [NotMapped]
-        public IFormFile ImageData { get; set; }
-        public string ImageDataAsBase64 { get; set; } // Property to store the Base64 representation of ImageData 
+        public Byte[] ImageData { get; set; }
 
     }
 }

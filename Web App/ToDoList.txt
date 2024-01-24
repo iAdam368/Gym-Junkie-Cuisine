@@ -1,6 +1,7 @@
 
 
 Reimplement image display and edit 
+Change "image display hidden" to a small image on index page for MenuModify 
 
 Move the content spacing class to layout page - apply .content-spacing to <body> tag
 Format Menu item page display - display menu as tiles
