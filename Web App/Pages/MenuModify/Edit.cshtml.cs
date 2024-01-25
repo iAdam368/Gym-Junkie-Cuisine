@@ -36,6 +36,7 @@ namespace Web_App.Pages.Menu
                 return NotFound();
             }
             FoodItem = fooditems;
+
             return Page();
         }
 
@@ -48,25 +49,21 @@ namespace Web_App.Pages.Menu
                 return Page();
             }
 
-            foreach (var file in Request.Form.Files)
+            if (Request.Form.Files.Count == 1)
             {
-                MemoryStream ms = new MemoryStream();
-                file.CopyTo(ms);
-
-                if (_context.FoodItems != null)
+                foreach (var file in Request.Form.Files)
                 {
+                    MemoryStream ms = new MemoryStream();
+                    file.CopyTo(ms);
+
                     FoodItem.ImageData = ms.ToArray();
+
+                    ms.Close();
+                    ms.Dispose();
                     _context.FoodItems.Update(FoodItem);
                 }
-
-                ms.Close();
-                ms.Dispose();
             }
-
-
-
             
-
 
             _context.Attach(FoodItem).State = EntityState.Modified;
 

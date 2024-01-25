@@ -1,6 +1,7 @@
 ﻿@page
 @model Web_App.Pages.Menu.EditModel
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,17 +25,17 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="FoodItem.FoodID" />
                     <div class="form-group">
-                        <label asp-for="FoodItem.FoodName" class="control-label"></label>
+                        <label asp-for="FoodItem.FoodName" class="control-label"> Food Name </label>
                         <input asp-for="FoodItem.FoodName" class="form-control" />
                         <span asp-validation-for="FoodItem.FoodName" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="FoodItem.FoodDescription" class="control-label"></label>
+                        <label asp-for="FoodItem.FoodDescription" class="control-label"> Food Description </label>
                         <input asp-for="FoodItem.FoodDescription" class="form-control" />
                         <span asp-validation-for="FoodItem.FoodDescription" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="FoodItem.CategoryOfFood" class="control-label"></label>
+                        <label asp-for="FoodItem.CategoryOfFood" class="control-label"> Category of Food </label>
                         <input asp-for="FoodItem.CategoryOfFood" class="form-control" />
                         <span asp-validation-for="FoodItem.CategoryOfFood" class="text-danger"></span>
                     </div>
@@ -49,17 +50,17 @@
                         <span asp-validation-for="FoodItem.IsAvailable" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="FoodItem.Price" class="control-label"></label>
+                        <label asp-for="FoodItem.Price" class="control-label"> In Stock? (TRUE or FALSE) </label>
                         <input asp-for="FoodItem.Price" class="form-control" />
                         <span asp-validation-for="FoodItem.Price" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="FoodItem.ImageDescription" class="control-label"></label>
+                        <label asp-for="FoodItem.ImageDescription" class="control-label"> Image Description </label>
                         <input asp-for="FoodItem.ImageDescription" class="form-control" />
                         <span asp-validation-for="FoodItem.ImageDescription" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="FoodItem.ImageData" class="control-label"></label>
+                        <label asp-for="FoodItem.ImageData" class="control-label"> Image </label>
                         <input type="file" id="file1" name="file1" asp-for="FoodItem.ImageData" class="form-control" />
                         <span asp-validation-for="FoodItem.ImageData" class="text-danger"></span>
                     </div>
