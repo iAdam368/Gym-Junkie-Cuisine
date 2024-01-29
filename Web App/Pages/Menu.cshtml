@@ -27,7 +27,7 @@
         <p>See all of the menu information below:</p>
 
         <div class="text-center">
-            <table>
+            <table id="menu_table">
                 <thead>
                     <tr>
                         <th>Dish</th>
@@ -48,11 +48,11 @@
                             @{
                             try
                             {
-                            <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(tblFoodItems.ImageData))" alt="@tblFoodItems.ImageDescription" />
+                                <img class="menu-image-formatting" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(tblFoodItems.ImageData))" alt="@tblFoodItems.ImageDescription" />
                             }
                             catch
                             {
-                            <img class="img-thumb" src="~/img/no-image.jpg" alt="No image provided" />
+                                <img class="menu-image-formatting" src="~/img/no-image.jpg" alt="No image provided" />
                             } 
                             }
                         </td>
