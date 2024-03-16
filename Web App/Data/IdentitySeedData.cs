@@ -6,14 +6,17 @@ namespace Web_App.Data
     {
         public static async Task Initialize(Web_AppContext context,
             UserManager<IdentityUser> userManager,
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<IdentityRole> roleManager,
+            SignInManager<IdentityUser> SignInManager)
         {
             context.Database.EnsureCreated();
 
+            // Variables 
             string adminRole = "Admin";
             string memberRole = "Member";
             string password4all = "P@55word";
 
+            // Admin role
             if (await roleManager.FindByNameAsync(adminRole) == null)
             {
                 await roleManager.CreateAsync(new IdentityRole(adminRole));
@@ -33,6 +36,7 @@ namespace Web_App.Data
                     PhoneNumber = "06124648200"
                 };
 
+                // Creating default admin account
                 var result = await userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -41,6 +45,7 @@ namespace Web_App.Data
                 }
             }
 
+            // Member role
             if (await userManager.FindByNameAsync("member@chester.ac.uk") == null)
             {
                 var user = new IdentityUser
@@ -50,6 +55,7 @@ namespace Web_App.Data
                     PhoneNumber = "06124648200"
                 };
 
+                // Creating default member account
                 var result = await userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

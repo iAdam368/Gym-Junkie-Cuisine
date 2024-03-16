@@ -93,8 +93,10 @@ using (var scope = app.Services.CreateScope())
         context.Database.Migrate();
         var userMgr = services.GetRequiredService<UserManager<IdentityUser>>();
         var roleMgr = services.GetRequiredService<RoleManager<IdentityRole>>();
-        IdentitySeedData.Initialize(context, userMgr, roleMgr).Wait();
-    } catch (SqlException)
+        var signInMgr = services.GetRequiredService<SignInManager<IdentityUser>>();
+        IdentitySeedData.Initialize(context, userMgr, roleMgr, signInMgr).Wait();
+    }
+    catch (SqlException)
     {
         // SQL Database Exception - cannot connect to the database server (probably a VPN or connection issue)
     }
