@@ -116,4 +116,10 @@ body {
     border-spacing: 15px;
 }
 
+#register {
+    color: white !important;
+}
 
+#login {
+    color: white !important;
+}
