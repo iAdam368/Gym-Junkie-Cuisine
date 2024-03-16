@@ -85,12 +85,20 @@ app.MapRazorPages();
 
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<Web_AppContext>();
-    context.Database.Migrate();
-    var userMgr = services.GetRequiredService<UserManager<IdentityUser>>();
-    var roleMgr = services.GetRequiredService<RoleManager<IdentityRole>>();
-    IdentitySeedData.Initialize(context, userMgr, roleMgr).Wait();
+
+    try
+    {
+        var services = scope.ServiceProvider;
+        var context = services.GetRequiredService<Web_AppContext>();
+        context.Database.Migrate();
+        var userMgr = services.GetRequiredService<UserManager<IdentityUser>>();
+        var roleMgr = services.GetRequiredService<RoleManager<IdentityRole>>();
+        IdentitySeedData.Initialize(context, userMgr, roleMgr).Wait();
+    } catch (SqlException)
+    {
+        // SQL Database Exception - cannot connect to the database server (probably a VPN or connection issue)
+    }
+
 }
 
 app.Run();

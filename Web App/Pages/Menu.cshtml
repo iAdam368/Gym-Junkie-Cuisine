@@ -11,59 +11,53 @@
 </head>
 
 <body>
+    <h1>Menu Information</h1>
 
-    <div class="content-spacing">
+    <h4>Search</h4>
+    <p>
+        <form method="post">
+            <div> <input asp-for="Search"/> </div>
+            <button class="btn btn-primary" type="submit" asp-page-handler="Search">Submit</button>
+        </form>
+    </p>
 
-        <h1>Menu Information</h1>
+    <p>See all of the menu information below:</p>
 
-        <h4>Search</h4>
-        <p>
-            <form method="post">
-                <div> <input asp-for="Search"/> </div>
-                <button class="btn btn-primary" type="submit" asp-page-handler="Search">Submit</button>
-            </form>
-        </p>
-
-        <p>See all of the menu information below:</p>
-
-        <div class="text-center">
-            <table id="menu_table">
-                <thead>
-                    <tr>
-                        <th>Dish</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Image</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var tblFoodItems in Model.FoodItem)
-                    {
-                    <tr>
-                        <td class="capitalise-words">@tblFoodItems.FoodName</td>
-                        <td>@tblFoodItems.FoodDescription</td>
-                        <!-- Displaying the price in pounds with two decimal prices, code adapted from Microsoft's ASP.NET website -->
-                        <td>@string.Format("£{0:N2}", tblFoodItems.Price)</td>
-                        <td>
-                            @{
-                            try
-                            {
-                                <img class="menu-image-formatting" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(tblFoodItems.ImageData))" alt="@tblFoodItems.ImageDescription" />
-                            }
-                            catch
-                            {
-                                <img class="menu-image-formatting" src="~/img/no-image.jpg" alt="No image provided" />
-                            } 
-                            }
-                        </td>
-                    </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-
+    <div class="text-center">
+        <table id="menu_table">
+            <thead>
+                <tr>
+                    <th>Dish</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tblFoodItems in Model.FoodItem)
+                {
+                <tr>
+                    <td class="capitalise-words">@tblFoodItems.FoodName</td>
+                    <td>@tblFoodItems.FoodDescription</td>
+                    <!-- Displaying the price in pounds with two decimal prices, code adapted from Microsoft's ASP.NET website -->
+                    <td>@string.Format("£{0:N2}", tblFoodItems.Price)</td>
+                    <td>
+                        @{
+                        try
+                        {
+                            <img class="menu-image-formatting" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(tblFoodItems.ImageData))" alt="@tblFoodItems.ImageDescription" />
+                        }
+                        catch
+                        {
+                            <img class="menu-image-formatting" src="~/img/no-image.jpg" alt="No image provided" />
+                        } 
+                        }
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
     </div>
-
 </body>
 
 </html>

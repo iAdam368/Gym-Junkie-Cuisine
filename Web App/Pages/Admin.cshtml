@@ -11,19 +11,14 @@
 </head>
 
 <body>
+    <h1>@ViewData["Title"]</h1>
+    <p>See the admin features below:</p>
 
-    <div class="content-spacing">
-        <h1>@ViewData["Title"]</h1>
-        <p>See the admin features below:</p>
-
-        <h4>Menu Options</h4>
-        <ul>
-            <li> <a asp-page="/MenuModify/Index">View, Edit & Delete Dishes</a> </li>
-            <li> <a asp-page="/MenuModify/Create">Add a New Dish</a> </li>
-        </ul>
-
-    </div>
-
+    <h4>Menu Options</h4>
+    <ul>
+        <li> <a asp-page="/MenuModify/Index">View, Edit & Delete Dishes</a> </li>
+        <li> <a asp-page="/MenuModify/Create">Add a New Dish</a> </li>
+    </ul>
 </body>
 
 </html>

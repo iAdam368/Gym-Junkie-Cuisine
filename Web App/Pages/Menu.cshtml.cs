@@ -22,7 +22,15 @@ namespace Web_App.Pages
 
         public void OnGet()
         {
-            FoodItem = _context.FoodItems.FromSqlRaw("Select * FROM FoodItem").ToList();
+            try
+            {
+                FoodItem = _context.FoodItems.FromSqlRaw("Select * FROM FoodItem").ToList();
+            }
+            catch (SqlException)
+            {
+                // SQL Database Exception
+            }
+
         }
 
         public IActionResult OnPostSearch()
