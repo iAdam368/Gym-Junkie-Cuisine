@@ -50,7 +50,7 @@ body {
 
 /* Alters the color of the navigation bar item when it is hovered over, code adapted from W3Schools */
 .navbar a:hover:not(.active) {
-    background-color: #ffae00;
+    background-color: #FFAE00;
     text-shadow: 1px 0px 3px black;
     border-radius: 7px;
     color: black !important; /* Code adapted from StackOverflow user Rvervuurt */
@@ -116,10 +116,19 @@ body {
     border-spacing: 15px;
 }
 
-#register {
+/* Setting text to white for authentication links in the navbar */
+#register, #login, #manage, #logout {
     color: white !important;
 }
 
-#login {
-    color: white !important;
+/* Enabling change of colour on authentication buttons in the navbar */
+#register:is(:hover), #login:is(:hover), #logout:is(:hover), #manage:is(:hover) {
+    text-shadow: 1px 0px 3px black !important;
+    background-color: #FFAE00 !important;
+    color: black !important;
+}
+
+/* Setting logout button text to red */
+#logout {
+    color: #DC3545 !important;
 }
