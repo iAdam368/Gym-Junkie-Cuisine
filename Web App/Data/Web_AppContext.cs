@@ -9,7 +9,6 @@ using Web_App.Models;
 namespace Web_App.Data
 {
 
-    // Add identity to the context 
     public class Web_AppContext : IdentityDbContext
     {
         public Web_AppContext (DbContextOptions<Web_AppContext> options) : base(options)
@@ -17,10 +16,19 @@ namespace Web_App.Data
         }
 
         public DbSet<Web_App.Models.FoodItem> FoodItems { get; set; }
+
+        // Add Basket, BasketItem and CheckoutCustomer tables to db context
+        public DbSet<CheckoutCustomer> CheckoutCustomers { get; set; } = default!;
+        public DbSet<Basket> Baskets { get; set; } = default!;
+        public DbSet<BasketItem> BasketItems { get; set; } = default!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<FoodItem>().ToTable("FoodItem");
+
+            // Assign composite primary key to BasketItem
+            modelBuilder.Entity<BasketItem>().HasKey(t => new { t.StockID, t.BasketID });
         }
     }
 }
