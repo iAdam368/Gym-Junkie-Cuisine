@@ -53,14 +53,24 @@
                         }
                         }
                     </td>
-                    <td> 
+                    <td>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
                         <form method="post">
-                            <button type="submit" asp-page-handler="Buy" asp-route-foodID="@tblFoodItems.FoodID">
+                            <button type="submit" class="btn btn-primary" asp-page-handler="Buy" asp-route-foodID="@tblFoodItems.FoodID">
                                 Add to Basket
                             </button>
                         </form>
+                    } else
+                    {
+                        <form>
+                            <button type="reset" class="btn btn-primary" onclick="location.href='../Identity/Account/Login'">
+                                Login to Buy
+                            </button>
+                        </form>
+                    }
                     </td>
-                </tr>
+                    </tr>
                 }
             </tbody>
         </table>
