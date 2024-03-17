@@ -171,17 +171,8 @@ namespace Web_App.Areas.Identity.Pages.Account
         // Method to create a new basket
         public void NewBasket()
         {
-            var currentBasket = _db.Baskets.FromSqlRaw("SELECT * FROM Basket")
-                .OrderByDescending(b => b.BasketID)
-                .FirstOrDefault();
-            if (currentBasket == null)
-            {
-                Basket.BasketID = 1;
-            }
-            else
-            {
-                Basket.BasketID = currentBasket.BasketID + 1; 
-            }
+            // New BasketID assigned automatically when a new one is added to the database
+
             _db.Baskets.Add(Basket);
             _db.SaveChanges();
         }
