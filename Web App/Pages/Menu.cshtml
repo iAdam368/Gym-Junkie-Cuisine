@@ -50,8 +50,15 @@
                         catch
                         {
                             <img class="menu-image-formatting" src="~/img/no-image.jpg" alt="No image provided" />
-                        } 
                         }
+                        }
+                    </td>
+                    <td> 
+                        <form method="post">
+                            <button type="submit" asp-page-handler="Buy" asp-route-foodID="@tblFoodItems.FoodID">
+                                Add to Basket
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 }
