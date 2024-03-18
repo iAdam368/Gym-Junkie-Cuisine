@@ -14,6 +14,12 @@ html {
     }
 }
 
+/* Image sizing formatting *** */
+.image-formatting {
+    width: 100%;
+    height: 100%;
+}
+
 /* Main content formatting */
 body {
     margin: 0;
@@ -21,12 +27,12 @@ body {
 }
 
 /* Creates enough spacing so that the footer can be seen at the bottom of the page */
-/* Code adapted from StackOverflow user Natalia Larrieux (2016) */
+/* Code adapted from StackOverflow user Larrieux, 2016 */
 .content-spacing {
     min-height: calc(100vh - 40px);
 }
 
-/* Navigation bar concepts gathered from W3Schools */
+/* Navigation bar concepts gathered from W3Schools, 2023 */
 /* Class to format for the navigation bar rectangle */
 .navbar {
     background-color: red;

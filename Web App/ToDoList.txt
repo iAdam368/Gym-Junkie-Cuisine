@@ -1,16 +1,14 @@
 ***
 
-- Change "image display hidden" to a small image on MenuModify/Index page 
-- Change sizing of the image in MenuModify/Delete page - responsive
-
 - Grid layout for the menu page
+
+- Javascript for to top of page - in layout page? (old code)
 
 - Contact page - email contact form and email validation 
 
 HOMEPAGE
-- Fullscreen image on homepage -->
-- Title and text formatting -->
--  -->
+- Fullscreen image
+- Title and text formatting
 
 ERD
 - Increase the string size of variables in ERD
