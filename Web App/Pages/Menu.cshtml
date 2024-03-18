@@ -28,37 +28,41 @@
             <div>
                 <p class="capitalise-words menu-title">@tblFoodItems.FoodName</p>
                 <p>@tblFoodItems.FoodDescription</p>
-                <p>
-                    @{
-                    try
-                    {
-                        <img class="menu-image-formatting" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(tblFoodItems.ImageData))" alt="@tblFoodItems.ImageDescription" />
-                    }
-                    catch
-                    {
-                        <img class="menu-image-formatting" src="~/img/no-image.jpg" alt="No image provided" />
-                    }
-                    }
-                </p>
-                <p>@string.Format("£{0:N2}", tblFoodItems.Price)</p>
-                <p>
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <form method="post">
-                            <button type="submit" class="btn btn-primary" asp-page-handler="Buy" asp-route-foodID="@tblFoodItems.FoodID">
-                                Add to Basket
-                            </button>
-                        </form>
-                    }
-                    else
-                    {
-                        <form>
-                            <button type="reset" class="btn btn-primary" onclick="location.href='/Identity/Account/Login'">
-                                Login to Buy
-                            </button>
-                        </form>
-                    }
-                </p>
+                <div class="flex-align-end">
+                    <p>
+                        @{
+                        try
+                        {
+                            <img class="menu-image-formatting" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(tblFoodItems.ImageData))" alt="@tblFoodItems.ImageDescription" />
+                        }
+                        catch
+                        {
+                            <img class="menu-image-formatting" src="~/img/no-image.jpg" alt="No image provided" />
+                        }
+                        }
+                    </p>
+                    <!-- *** -->
+                    <p>@string.Format("£{0:N2}", tblFoodItems.Price)</p>
+                    <!-- 'Add to Basket' or 'Login' button if user is not logged in' -->
+                    <p>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <form method="post">
+                                <button type="submit" class="btn btn-primary" asp-page-handler="Buy" asp-route-foodID="@tblFoodItems.FoodID">
+                                    Add to Basket
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form>
+                                <button type="reset" class="btn btn-primary" onclick="location.href='@Url.Content("~/Identity/Account/Login")'">
+                                    Login to Buy
+                                </button>
+                            </form>
+                        }
+                    </p>
+                </div>
             </div>
         }
     </div>

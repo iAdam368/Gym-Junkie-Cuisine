@@ -133,11 +133,20 @@ body {
         text-align: center;
         -webkit-transition-duration: 0.5s; /* For Safari browsers */
         transition-duration: 0.5s;
+        display: flex;
+        flex-direction: column;
+        position: relative;
     }
         .flex-container > div:hover {
             background-color: #FFAE00;
             color: black;
         }
+
+/* Aligning items to the end of the flex box */
+/* Code adapted from  */
+.flex-align-end {
+    margin-top: auto
+}
 
 .floating-button {
     bottom: 20px;
