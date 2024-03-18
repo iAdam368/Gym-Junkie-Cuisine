@@ -13,7 +13,7 @@
 <body>
     <h1>Menu Information</h1>
 
-    <!-- Menu search bar -->
+    <!-- Menu search box and button -->
     <h4>Search</h4>
     <p>
         <form method="post">
@@ -22,27 +22,16 @@
         </form>
     </p>
 
-    <!-- Dispaly all of the menu items -->
+    <!-- Dispalying all of the individual menu items -->
     <p>See all of the menu information below:</p>
-    <div class="text-center">
-        <table id="menu_table">
-            <thead>
-                <tr>
-                    <th>Dish</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Image</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var tblFoodItems in Model.FoodItem)
-                {
-                <tr>
-                    <td class="capitalise-words">@tblFoodItems.FoodName</td>
-                    <td>@tblFoodItems.FoodDescription</td>
-                    <!-- Displaying the price in pounds with two decimal prices, code adapted from Microsoft's ASP.NET website -->
-                    <td>@string.Format("£{0:N2}", tblFoodItems.Price)</td>
-                    <td>
+
+        <div class="flex-container">
+            @foreach (var tblFoodItems in Model.FoodItem)
+            {
+                <div>
+                    <p class="capitalise-words menu-title">@tblFoodItems.FoodName</p>
+                    <p>@tblFoodItems.FoodDescription</p>
+                    <p>
                         @{
                         try
                         {
@@ -53,29 +42,30 @@
                             <img class="menu-image-formatting" src="~/img/no-image.jpg" alt="No image provided" />
                         }
                         }
-                    </td>
-                    <td>
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <form method="post">
-                            <button type="submit" class="btn btn-primary" asp-page-handler="Buy" asp-route-foodID="@tblFoodItems.FoodID">
-                                Add to Basket
-                            </button>
-                        </form>
-                    } else
-                    {
-                        <form>
-                            <button type="reset" class="btn btn-primary" onclick="location.href='../Identity/Account/Login'">
-                                Login to Buy
-                            </button>
-                        </form>
-                    }
-                    </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+                    </p>
+                    <p>@string.Format("£{0:N2}", tblFoodItems.Price)</p>
+                    <p>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <form method="post">
+                                <button type="submit" class="btn btn-primary" asp-page-handler="Buy" asp-route-foodID="@tblFoodItems.FoodID">
+                                    Add to Basket
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form>
+                                <button type="reset" class="btn btn-primary" onclick="location.href='../Identity/Account/Login'">
+                                    Login to Buy
+                                </button>
+                            </form>
+                        }
+                    </p>
+                </div>
+            }
+        </div>
+
 </body>
 
 </html>

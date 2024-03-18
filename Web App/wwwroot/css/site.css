@@ -7,6 +7,12 @@ html {
     padding-left: 0px;
 }
 
+/* Main content formatting */
+body {
+    margin: 0;
+    padding-left: 0px;
+}
+
 /* Setting image size */
 @media (min-width: 768px) {
     html {
@@ -14,16 +20,17 @@ html {
     }
 }
 
-/* Image sizing formatting *** */
+/* Image sizing formatting */
 .image-formatting {
     width: 100%;
     height: 100%;
 }
 
-/* Main content formatting */
-body {
-    margin: 0;
-    padding-left: 0px;
+/* Formatting the menu images display */
+.menu-image-formatting {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 /* Creates enough spacing so that the footer can be seen at the bottom of the page */
@@ -78,13 +85,6 @@ body {
     text-transform: capitalize;
 }
 
-/* Formatting for the logo picture *** implement a logo */
-.responsive-picture {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
 /* Formatting for the footer */
 .footer {
     position: absolute;
@@ -110,11 +110,38 @@ body {
     border-radius: 7px;
 }
 
-/* Formatting the menu images display */
-.menu-image-formatting {
-    width: 100%;
-    height: 100%;
-    position: relative;
+/* Set background to grey (for the footer) */
+.grey-background {
+    background-color: #1A1E21;
+}
+
+/* Flex container styling for individual menu items */
+.flex-container {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+    .flex-container > div {
+        background-color: #212529;
+        border-radius: 7px;
+        width: 300px;
+        margin: 10px;
+        padding: 5px;
+        text-align: center;
+        /* font-size: 18px; EDIT THIS *** */
+        -webkit-transition-duration: 0.5s; /* For Safari browsers only */
+        transition-duration: 0.5s;
+    }
+        .flex-container > div:hover {
+            background-color: #FFAE00;
+            color: black;
+        }
+
+.menu-title {
+    font-size: 18px;
+    font-weight: bold;
 }
 
 /* Adding spacing for the menu table */
