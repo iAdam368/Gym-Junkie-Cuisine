@@ -12,85 +12,82 @@
 
 <body>
 
-    <div class="content-spacing">
+    <!-- Page title -->
+    <h1>Menu Items List</h1>
 
-        <h1>Menu Items List</h1>
+    <!-- Quick-access to create a new dish (button) -->
+    <p>
+        <div>
+            <a class="btn btn-primary" asp-page="Create">Create New Dish</a>
+        </div>
+    </p>
 
-        <p>
-
-            <div>
-                <a class="btn btn-primary" asp-page="Create">Create New Dish</a>
-            </div>
-
-        </p>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        Food Name
-                    </th>
-                    <th>
-                        Food Description
-                    </th>
-                    <th>
-                        Category of Food
-                    </th>
-                    <th>
-                        Specification
-                    </th>
-                    <th>
-                        Available?
-                    </th>
-                    <th>
-                        Price
-                    </th>
-                    <th>
-                        Image Description
-                    </th>
-                    <th>
-                        Image
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-        @foreach (var item in Model.FoodItem) {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FoodName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FoodDescription)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CategoryOfFood)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Specification)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IsAvailable)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ImageDescription)
-                    </td>
-                    <td>
-                        Image Data Hidden
-                    </td>
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@item.FoodID">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.FoodID">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.FoodID">Delete</a>
-                    </td>
-                </tr>
-        }
-            </tbody>
-        </table>
-
-    </div>
+    <!-- Table displaying all menu items with options for edit, details and delete -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Food Name
+                </th>
+                <th>
+                    Food Description
+                </th>
+                <th>
+                    Category of Food
+                </th>
+                <th>
+                    Specification
+                </th>
+                <th>
+                    Available?
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Image Description
+                </th>
+                <th>
+                    Image
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.FoodItem) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FoodName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FoodDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryOfFood)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specification)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAvailable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImageDescription)
+                </td>
+                <td>
+                    Image Data Hidden
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.FoodID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.FoodID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.FoodID">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
 
 </body>
 

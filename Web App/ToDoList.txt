@@ -1,10 +1,17 @@
-Contact page - email contact form and email validation 
+***
 
-Change "image display hidden" to a small image on index page for MenuModify 
+- Change "image display hidden" to a small image on MenuModify/Index page 
+- Change sizing of the image in MenuModify/Delete page - responsive
 
-Move the content spacing class to layout page - apply .content-spacing to <body> tag
-Format Menu item page display - display menu as tiles
+- Grid layout for the menu page
 
---- ERD
-Increase the string size of variables in ERD
-Change ERD to include ImageData row and edit
+- Contact page - email contact form and email validation 
+
+HOMEPAGE
+- Fullscreen image on homepage -->
+- Title and text formatting -->
+-  -->
+
+ERD
+- Increase the string size of variables in ERD
+- Change ERD to include ImageData row and edit

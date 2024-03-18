@@ -14,75 +14,75 @@
 
 <body>
 
-    <div class="content-spacing">
+    <!-- Page title -->
+    <h1>Edit a Menu Item</h1>
+    <hr/>
 
-        <h1>Edit a Menu Item</h1>
-        <hr/>
+    <!-- Form for creating a new menu item -->
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="FoodItem.FoodID" />
+                <div class="form-group">
+                    <label asp-for="FoodItem.FoodName" class="control-label"> Food Name </label>
+                    <input asp-for="FoodItem.FoodName" class="form-control" />
+                    <span asp-validation-for="FoodItem.FoodName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FoodItem.FoodDescription" class="control-label"> Food Description </label>
+                    <input asp-for="FoodItem.FoodDescription" class="form-control" />
+                    <span asp-validation-for="FoodItem.FoodDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FoodItem.CategoryOfFood" class="control-label"> Category of Food </label>
+                    <input asp-for="FoodItem.CategoryOfFood" class="form-control" />
+                    <span asp-validation-for="FoodItem.CategoryOfFood" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FoodItem.Specification" class="control-label"></label>
+                    <input asp-for="FoodItem.Specification" class="form-control" />
+                    <span asp-validation-for="FoodItem.Specification" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FoodItem.IsAvailable" class="control-label"> In Stock? (TRUE or FALSE)</label>
+                    <input asp-for="FoodItem.IsAvailable" class="form-control" />
+                    <span asp-validation-for="FoodItem.IsAvailable" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FoodItem.Price" class="control-label"></label>
+                    <input asp-for="FoodItem.Price" class="form-control" />
+                    <span asp-validation-for="FoodItem.Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FoodItem.ImageDescription" class="control-label"> Image Description </label>
+                    <input asp-for="FoodItem.ImageDescription" class="form-control" />
+                    <span asp-validation-for="FoodItem.ImageDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FoodItem.ImageData" class="control-label"> Image </label>
+                    <input type="file" id="file1" name="file1" asp-for="FoodItem.ImageData" class="form-control" />
+                    <span asp-validation-for="FoodItem.ImageData" class="text-danger"></span>
+                </div>
 
-        <div class="row">
-            <div class="col-md-4">
-                <form method="post" enctype="multipart/form-data">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="FoodItem.FoodID" />
+                <!-- 'Save' button to save the edited menu item -->
+                <p>
                     <div class="form-group">
-                        <label asp-for="FoodItem.FoodName" class="control-label"> Food Name </label>
-                        <input asp-for="FoodItem.FoodName" class="form-control" />
-                        <span asp-validation-for="FoodItem.FoodName" class="text-danger"></span>
+                        <input type="submit" value="Save" class="btn btn-primary" />
                     </div>
-                    <div class="form-group">
-                        <label asp-for="FoodItem.FoodDescription" class="control-label"> Food Description </label>
-                        <input asp-for="FoodItem.FoodDescription" class="form-control" />
-                        <span asp-validation-for="FoodItem.FoodDescription" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="FoodItem.CategoryOfFood" class="control-label"> Category of Food </label>
-                        <input asp-for="FoodItem.CategoryOfFood" class="form-control" />
-                        <span asp-validation-for="FoodItem.CategoryOfFood" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="FoodItem.Specification" class="control-label"></label>
-                        <input asp-for="FoodItem.Specification" class="form-control" />
-                        <span asp-validation-for="FoodItem.Specification" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="FoodItem.IsAvailable" class="control-label"> In Stock? (TRUE or FALSE)</label>
-                        <input asp-for="FoodItem.IsAvailable" class="form-control" />
-                        <span asp-validation-for="FoodItem.IsAvailable" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="FoodItem.Price" class="control-label"></label>
-                        <input asp-for="FoodItem.Price" class="form-control" />
-                        <span asp-validation-for="FoodItem.Price" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="FoodItem.ImageDescription" class="control-label"> Image Description </label>
-                        <input asp-for="FoodItem.ImageDescription" class="form-control" />
-                        <span asp-validation-for="FoodItem.ImageDescription" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="FoodItem.ImageData" class="control-label"> Image </label>
-                        <input type="file" id="file1" name="file1" asp-for="FoodItem.ImageData" class="form-control" />
-                        <span asp-validation-for="FoodItem.ImageData" class="text-danger"></span>
-                    </div>
-
-                    <p>
-                        <div class="form-group">
-                            <input type="submit" value="Save" class="btn btn-primary" />
-                        </div>
-                    </p>
-                </form>
-            </div>
+                </p>
+            </form>
         </div>
-
-        <div>
-            <a asp-page="./Index">Back to List</a>
-        </div>
-
-        @section Scripts {
-            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-        }
-
     </div>
+
+    <!-- Option to return to the main menu edit page -->
+    <div>
+        <a asp-page="./Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
 
 </body>
 
