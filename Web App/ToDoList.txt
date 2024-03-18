@@ -1,7 +1,5 @@
 ***
 
-- Javascript for to top of page - in layout page? (old code)
-
 - Contact page - email contact form and email validation 
 
 HOMEPAGE

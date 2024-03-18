@@ -131,13 +131,19 @@ body {
         padding: 5px;
         text-align: center;
         /* font-size: 18px; EDIT THIS *** */
-        -webkit-transition-duration: 0.5s; /* For Safari browsers only */
+        -webkit-transition-duration: 0.5s; /* For Safari browsers */
         transition-duration: 0.5s;
     }
         .flex-container > div:hover {
             background-color: #FFAE00;
             color: black;
         }
+
+.floating-button {
+    bottom: 20px;
+    right: 20px;
+    position: fixed;
+}
 
 .menu-title {
     font-size: 18px;

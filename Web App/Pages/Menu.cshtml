@@ -11,60 +11,57 @@
 </head>
 
 <body>
-    <h1>Menu Information</h1>
 
     <!-- Menu search box and button -->
-    <h4>Search</h4>
+    <h3>Dishes available at Gym Junkie Cuisine</h3>
     <p>
         <form method="post">
-            <div> <input asp-for="Search"/> </div>
-            <button class="btn btn-primary" type="submit" asp-page-handler="Search">Submit</button>
+            <p> <input asp-for="Search" /> </p>
+            <button class="btn btn-primary" type="submit" asp-page-handler="Search">Search</button>
         </form>
     </p>
 
     <!-- Dispalying all of the individual menu items -->
-    <p>See all of the menu information below:</p>
-
-        <div class="flex-container">
-            @foreach (var tblFoodItems in Model.FoodItem)
-            {
-                <div>
-                    <p class="capitalise-words menu-title">@tblFoodItems.FoodName</p>
-                    <p>@tblFoodItems.FoodDescription</p>
-                    <p>
-                        @{
-                        try
-                        {
-                            <img class="menu-image-formatting" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(tblFoodItems.ImageData))" alt="@tblFoodItems.ImageDescription" />
-                        }
-                        catch
-                        {
-                            <img class="menu-image-formatting" src="~/img/no-image.jpg" alt="No image provided" />
-                        }
-                        }
-                    </p>
-                    <p>@string.Format("£{0:N2}", tblFoodItems.Price)</p>
-                    <p>
-                        @if (SignInManager.IsSignedIn(User))
-                        {
-                            <form method="post">
-                                <button type="submit" class="btn btn-primary" asp-page-handler="Buy" asp-route-foodID="@tblFoodItems.FoodID">
-                                    Add to Basket
-                                </button>
-                            </form>
-                        }
-                        else
-                        {
-                            <form>
-                                <button type="reset" class="btn btn-primary" onclick="location.href='../Identity/Account/Login'">
-                                    Login to Buy
-                                </button>
-                            </form>
-                        }
-                    </p>
-                </div>
-            }
-        </div>
+    <div class="flex-container">
+        @foreach (var tblFoodItems in Model.FoodItem)
+        {
+            <div>
+                <p class="capitalise-words menu-title">@tblFoodItems.FoodName</p>
+                <p>@tblFoodItems.FoodDescription</p>
+                <p>
+                    @{
+                    try
+                    {
+                        <img class="menu-image-formatting" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(tblFoodItems.ImageData))" alt="@tblFoodItems.ImageDescription" />
+                    }
+                    catch
+                    {
+                        <img class="menu-image-formatting" src="~/img/no-image.jpg" alt="No image provided" />
+                    }
+                    }
+                </p>
+                <p>@string.Format("£{0:N2}", tblFoodItems.Price)</p>
+                <p>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <form method="post">
+                            <button type="submit" class="btn btn-primary" asp-page-handler="Buy" asp-route-foodID="@tblFoodItems.FoodID">
+                                Add to Basket
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form>
+                            <button type="reset" class="btn btn-primary" onclick="location.href='../Identity/Account/Login'">
+                                Login to Buy
+                            </button>
+                        </form>
+                    }
+                </p>
+            </div>
+        }
+    </div>
 
 </body>
 
