@@ -39,8 +39,8 @@ body {
     min-height: calc(100vh - 40px);
 }
 
-/* Navigation bar concepts gathered from W3Schools, 2023 */
 /* Class to format for the navigation bar rectangle */
+/* Navigation bar concepts gathered from W3Schools, 2023 */
 .navbar {
     background-color: red;
     position: fixed;
@@ -65,9 +65,10 @@ body {
 /* Alters the color of the navigation bar item when it is hovered over, code adapted from W3Schools */
 .navbar a:hover:not(.active) {
     background-color: #FFAE00;
-    text-shadow: 1px 0px 3px black;
     border-radius: 7px;
-    color: black !important; /* Code adapted from StackOverflow user Rvervuurt */
+    -webkit-transition-duration: 0.5s; /* For Safari browsers */
+    transition-duration: 0.5s;
+    color: black !important; /* !important attribute adapted from StackOverflow user jackJoe, 2011 */
 }
 
 /* Offsets the spacing "under" the navigation bar, as it has a different z-index */
@@ -130,7 +131,6 @@ body {
         margin: 10px;
         padding: 5px;
         text-align: center;
-        /* font-size: 18px; EDIT THIS *** */
         -webkit-transition-duration: 0.5s; /* For Safari browsers */
         transition-duration: 0.5s;
     }
@@ -166,6 +166,8 @@ body {
     text-shadow: 1px 0px 3px black !important;
     background-color: #FFAE00 !important;
     color: black !important;
+    -webkit-transition-duration: 0.5s; /* For Safari browsers */
+    transition-duration: 0.5s;
 }
 
 /* Setting logout button text to red */
