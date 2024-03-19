@@ -1,8 +1,13 @@
 ***
 
-- Contact page - email contact form and email validation 
+- Mobile small drop-down menu highlight fix (padding-left?)
+
+- Scroll to top bug on menu page (check which button for onClickListener)
+
+- Checkout system
 
 HOMEPAGE
+- Create about us section - talking about the restaurant and its origin 
 - Fullscreen image
 - Title and text formatting
 
