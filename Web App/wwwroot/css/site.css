@@ -143,7 +143,7 @@ body {
         }
 
 /* Aligning items to the end of the flex box */
-/* Code adapted from  */
+/* Code adapted from GeeksForGeeks, 2023 */
 .flex-align-end {
     margin-top: auto
 }
@@ -172,7 +172,6 @@ body {
 
 /* Enabling change of colour on authentication buttons in the navbar */
 #register:is(:hover), #login:is(:hover), #logout:is(:hover), #manage:is(:hover) {
-    text-shadow: 1px 0px 3px black !important;
     background-color: #FFAE00 !important;
     color: black !important;
     -webkit-transition-duration: 0.5s; /* For Safari browsers */
