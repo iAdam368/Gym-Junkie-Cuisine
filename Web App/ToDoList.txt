@@ -2,11 +2,13 @@
 
 - Checkout system
 
+- Lower resolution for images to reduce loading times 
+
 HOMEPAGE
 - Create about us section - talking about the restaurant and its origin 
-- Fullscreen image
-- Title and text formatting
+- Fullscreen image as background
+- Showcase the menu here also 
 
 ERD
 - Increase the string size of variables in ERD
-- Change ERD to include ImageData row and edit
+- Change ERD to include ImageData
