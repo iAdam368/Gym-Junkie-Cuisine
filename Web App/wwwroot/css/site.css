@@ -53,8 +53,9 @@ body {
 /* Individual item/block of the navigation bar */
 .nav-link {
     border-radius: 7px;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-right: 10px;
+    text-align: center;
 }
 
 /* Makes the drop down menu icon lighter, increasing contrast so that it is easier to see */

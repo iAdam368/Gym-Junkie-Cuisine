@@ -1,9 +1,5 @@
 ***
 
-- Mobile small drop-down menu highlight fix (padding-left?)
-
-- Scroll to top bug on menu page (check which button for onClickListener)
-
 - Checkout system
 
 HOMEPAGE
