@@ -154,6 +154,28 @@ body {
     position: fixed;
 }
 
+.success-text {
+    background-color: #DCFEDF;
+    color: #175200;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+.fail-text {
+    background-color: #FFBABA;
+    color: #6E0006;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+.form-group {
+    padding: 5px;
+}
+
+.stretch-content {
+    width: 100%;
+}
+
 .menu-title {
     font-size: 18px;
     font-weight: bold;
