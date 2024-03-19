@@ -7,23 +7,33 @@ namespace Web_App.Pages
 {
     public class ContactModel : PageModel
     {
-        public string isSend { get; set; }
+        public bool messageIsSent;
+
         public void OnGet()
         {
         }
 
-        // Getting data from the HTML form after the button is pressed 
-        public void OnPost() 
+        // Getting the information from the contact form 
+        public IActionResult OnPost() 
         {
             var name  = Request.Form["name"];
             var email = Request.Form["emailaddress"];
             var message = Request.Form["message"];
             
-            SendMail(name, email, message);
+            messageIsSent = SendMail(name, email, message);
+
+            if (messageIsSent)
+            {
+                return RedirectToPage("/ContactSuccess");
+            }
+            else
+            {
+                return RedirectToPage("/ContactFail");
+            }    
         }
 
         // Sending the form via email using the website's email server 
-        // Code adapted from ZetBit, 2022
+        // Code adapted from ZetBit, 2022 
         public bool SendMail(string name, string email, string userMessage)
         {
             MailMessage message = new MailMessage();
@@ -41,17 +51,18 @@ namespace Web_App.Pages
             smtpClient.Credentials = new NetworkCredential("WebApp-2214148", "P@55word");
             smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
 
+            // After submitting the form information the user is redirected to the success or fail page 
             try
             {
                 // smtpClient.Send(message); // Commented out as Plesk doesn't support outgoing emails 
-                isSend = "success";
+                return true;
             }
             catch (Exception)
             {
-                isSend = "fail";
+                return false;
             }
-            return true;
         }
+
 
     }
 }

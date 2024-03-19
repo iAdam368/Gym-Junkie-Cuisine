@@ -15,7 +15,3 @@ window.onscroll = () => {
     }
 }
 const toTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
-
-
-
-// Method to hide the contact form after clicking the submit button 
