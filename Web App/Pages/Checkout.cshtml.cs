@@ -28,14 +28,15 @@ namespace Web_App.Pages
             var user = await _UserManager.GetUserAsync(User);
             CheckoutCustomer customer = await _db.CheckoutCustomers.FindAsync(user.Email);
 
+            // Renamed 'FoodName' column to 'Item_Name' for mapping to the CheckoutItems class
             Items = _db.CheckoutItems.FromSqlRaw(
-                "SELECT FoodItem.FoodID, FoodItem.Price, " +
-                "FoodItem.FoodName, " +
+                "SELECT FoodItem.FoodID AS ID, FoodItem.Price, " +
+                "FoodItem.FoodName AS Item_Name, " +
                 "BasketItems.BasketID, BasketItems.Quantity " +
                 "FROM FoodItem INNER JOIN BasketItems " +
                 "ON FoodItem.FoodID = BasketItems.StockID " +
-                "WHERE BasketID = {0}", customer.BasketID
-                ).ToList();
+                "WHERE BasketID = {0}", customer.BasketID)
+            .ToList();
 
             Total = 0;
 
