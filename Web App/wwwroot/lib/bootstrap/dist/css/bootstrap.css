@@ -3203,8 +3203,8 @@ textarea.form-control-lg {
 }
 
 .btn-outline-primary {
-  color: #0d6efd;
-  border-color: #0d6efd;
+  color: #0d6efd !important;
+  border-color: #0d6efd !important;
 }
 .btn-outline-primary:hover {
   color: #fff;

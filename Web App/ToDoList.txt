@@ -1,14 +1,12 @@
 ***
 
-Payment system
-- Order History display 
-
-- Map on contact page 
-
 HOMEPAGE
 - Create about us section - talking about the restaurant and its origin 
 - Fullscreen image as background
 - Showcase the menu here also 
+
+Payment system
+- Order History display 
 
 ERD
 - Increase the string size of variables in ERD

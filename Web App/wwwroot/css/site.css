@@ -149,12 +149,43 @@ body {
     margin-top: auto
 }
 
+/* Formatting of a floating button (Back to Top button) */
 .floating-button {
-    bottom: 20px;
+    bottom: 60px;
     right: 20px;
     position: fixed;
 }
 
+/* Formatting of gold button */
+.btn-gold {
+    color: white;
+    background-color: #1A1E21;
+    border-color: #1A1E21;
+}
+
+.btn-check:focus + .btn-primary, .btn-primary:focus {
+    color: #fff;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+    
+}
+
+/* Formatting on gold button hover */
+.btn-gold:hover {
+    color: black;
+    background-color: #FFAE00;
+    border-color: #FFAE00;
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s; /* For Safari browsers */
+    
+}
+
+/* Box shadow applied on clicking the button */
+.btn-gold:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 210, 115, 0.7) !important;
+}
+
+/* Green text with light green background */
 .success-text {
     background-color: #DCFEDF;
     color: #175200;
@@ -162,6 +193,7 @@ body {
     padding: 5px;
 }
 
+/* Red text with pink background */
 .fail-text {
     background-color: #FFBABA;
     color: #6E0006;
@@ -169,14 +201,17 @@ body {
     padding: 5px;
 }
 
+/* Formatting of items within a form */
 .form-group {
     padding: 5px 5px 5px 0px;
 }
 
+/* Stretching content across the whole widht of a container */
 .stretch-content {
     width: 100%;
 }
 
+/* Formatting for the menu items' title */
 .menu-title {
     font-size: 18px;
     font-weight: bold;
@@ -188,9 +223,15 @@ body {
     border-spacing: 15px;
 }
 
-/* Setting text to white for authentication links in the navbar */
-#register, #login, #manage, #logout {
-    color: white !important;
+/* Navbar authentication links colour */
+#register, #manage, #login {
+    color: #FFAE00 !important;
+}
+
+/* Login button formatting */
+#login {
+    outline: solid;
+    outline-width: 1px;
 }
 
 /* Enabling change of colour on authentication buttons in the navbar */
@@ -205,6 +246,18 @@ body {
 #logout {
     color: #DC3545 !important;
     margin: auto auto;
+    outline: solid;
+    outline-width: 1px;
+}
+
+/* Colour changes on hovering over the logout button */
+#logout:hover {
+    background-color: #DC3545 !important;
+    border-radius: 7px;
+    outline-color: #DC3545;
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s; /* For Safari browsers */
+    color: white !important; /* !important attribute adapted from StackOverflow user jackJoe, 2011 */
 }
 
 /* Navigation bar's basket icon formatting */
