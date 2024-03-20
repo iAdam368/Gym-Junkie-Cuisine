@@ -4,8 +4,6 @@ Payment system
 - Order History display 
 
 - 'Move' login buttons and greeting on right side of navbar
-- Remove greeting 'Hello!' from navbar
-- Dropdown menu logout button bug
 
 - Checkout (+) & (-) buttons for adding/removing items 
 

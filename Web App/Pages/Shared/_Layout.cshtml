@@ -24,38 +24,44 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-page="/Menu">Menu</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-page="/Contact">Contact</a>
-                            </li>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Menu">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Contact">Contact</a>
+                        </li>
+                    </ul>
 
-                            <!-- Code adapted from Microsoft, 2023 -->
-                            @if (SignInManager.IsSignedIn(User)){
-                            <!-- End of adapted code -->
-                                @if (User.IsInRole("Admin"))
-                                {
-                                    <li class="nav-item">
-                                        <a class="nav-link text-danger" asp-area="" asp-page="/Admin">Admin</a>
-                                    </li>
-                                }
-                            }
-                            @if (SignInManager.IsSignedIn(User))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" asp-area="" asp-page="/Checkout">Checkout</a>
-                                </li>
-                            }
-                            <li>
-                                <partial name="_LoginPartial" />
+                    <ul class="navbar-nav ms-auto">
+                    <!-- Code adapted from Microsoft, 2023 -->
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                    <!-- End of adapted code -->
+                    @if (User.IsInRole("Admin"))
+                    {
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" asp-area="" asp-page="/Admin">Admin</a>
                             </li>
-                        </ul>
-                    </div>
+                    }
+                    }
+                            
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-page="/Checkout">Checkout</a>
+                    </li>
+                    }
+                             
+                    <li class="nav-item">
+                        <partial class="nav-link" name="_LoginPartial" />
+                    </li>
+                </ul>
+
+                </div>
                 </div>
             </nav>
         </header>
