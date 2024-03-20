@@ -3,10 +3,6 @@
 Payment system
 - Order History display 
 
-- 'Move' login buttons and greeting on right side of navbar
-
-- Checkout (+) & (-) buttons for adding/removing items 
-
 - Map on contact page 
 
 HOMEPAGE
