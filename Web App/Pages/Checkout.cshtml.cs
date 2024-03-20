@@ -14,7 +14,7 @@ namespace Web_App.Pages
     {
 
         private readonly Web_AppContext _db;
-        private readonly UserManager<IdentityUser> _UserManager;
+        private readonly UserManager<IdentityUser> _userManager;
         public IList<CheckoutItem> Items { get; set; }
         public OrderHistory Order = new OrderHistory();
 
@@ -28,13 +28,13 @@ namespace Web_App.Pages
         public CheckoutModel(Web_AppContext db, UserManager<IdentityUser> UserManager, IOptions<StripeSettings> stripeSettings)
         {
             _db = db;
-            _UserManager = UserManager;
+            _userManager = UserManager;
             _stripeSettings = stripeSettings.Value;
         }   
         
         public async Task OnGetAsync()
         {
-            var user = await _UserManager.GetUserAsync(User);
+            var user = await _userManager.GetUserAsync(User);
             CheckoutCustomer customer = await _db.CheckoutCustomers.FindAsync(user.Email);
 
             // Renamed 'FoodName' column to 'Item_Name' for mapping to the CheckoutItems class
@@ -45,7 +45,7 @@ namespace Web_App.Pages
                 "FROM FoodItem INNER JOIN BasketItems " +
                 "ON FoodItem.FoodID = BasketItems.StockID " +
                 "WHERE BasketID = {0}", customer.BasketID)
-            .ToList();
+                .ToList();
 
             Total = 0;
 
@@ -72,7 +72,7 @@ namespace Web_App.Pages
                 Order.OrderNo = currentOrder.OrderNo + 1;
             }
         
-            var user = await _UserManager.GetUserAsync(User);
+            var user = await _userManager.GetUserAsync(User);
             Order.Email = user.Email;
             _db.OrderHistories.Add(Order);
 
@@ -99,6 +99,76 @@ namespace Web_App.Pages
             await _db.SaveChangesAsync();
             return RedirectToPage("/CheckoutSuccess");
         }
+
+
+        public async Task<IActionResult> OnPostRemoveAsync(int checkoutItemID)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            CheckoutCustomer customer = await _db.CheckoutCustomers.FindAsync(user.Email);
+
+            var item = _db.BasketItems
+                .FromSqlRaw("SELECT * FROM BasketItems WHERE StockID = {0}" + " AND BasketID = {1}", checkoutItemID, customer.BasketID)
+                .ToList()
+                .FirstOrDefault();
+
+            item.Quantity--;
+            _db.Attach(item).State = EntityState.Modified;
+            await _db.SaveChangesAsync();
+
+            return RedirectToPage();
+        }
+
+
+/*    var item = _db.BasketItems
+            .FromSqlRaw("SELECT * FROM BasketItems WHERE StockID = {0}" + " AND BasketID = {1}", foodID, customer.BasketID)
+            .ToList()
+            .FirstOrDefault();
+
+        //var currentQuantity = _db.CheckoutItems.FromSqlRaw("").ToList().FirstOrDefault();
+
+        item.Quantity = item.Quantity - 1;
+        _db.Attach(item).State = EntityState.Modified;
+
+        try
+        {
+            await _db.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException e)
+        {
+            throw new Exception($"Could not save changes to database, exception: ", e);
+        }
+*/
+
+            /* var user = await _userManager.GetUserAsync(User);
+             CheckoutCustomer customer = await _db.CheckoutCustomers.FindAsync(user.Email);
+
+             Items = _db.CheckoutItems.FromSqlRaw(
+                 "SELECT FoodItem.FoodID AS ID, FoodItem.Price, " +
+                 "FoodItem.FoodName AS Item_Name, " +
+                 "BasketItems.BasketID, BasketItems.Quantity " +
+                 "FROM FoodItem INNER JOIN BasketItems " +
+                 "ON FoodItem.FoodID = BasketItems.StockID " +
+                 "WHERE BasketID = {0}", customer.BasketID).ToList();
+
+             var item = _db.BasketItems
+                 .FromSqlRaw("SELECT * FROM BasketItems WHERE StockID = {0}" + " AND BasketID = {1}", foodID, customer.BasketID)
+                 .ToList()
+                 .FirstOrDefault();
+
+             var currentFoodName = _db.FoodItems.FromSqlRaw("SELECT * FROM OrderHistories");
+
+             Total = 0;
+
+             foreach (var item in Items)
+             {
+                 Total += (item.Quantity * item.Price);
+                 if (item.)
+             }
+             AmountPayable = (long)Total; */
+
+
+        
+
 
 
 
