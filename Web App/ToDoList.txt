@@ -1,11 +1,12 @@
 ***
 
 HOMEPAGE
-- Create about us section - talking about the restaurant and its origin 
-- Fullscreen image as background
+- Fullscreen image as background - overlay message and logo.png
+- Food images as squares - long list with dark grey
 - Showcase the menu here also?
 
 Payment system
+- Delete button for a menu item at checkout (bin icon)
 - Order History display 
 
 ERD
