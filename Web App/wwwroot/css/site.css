@@ -67,8 +67,8 @@ body {
 .navbar a:hover:not(.active) {
     background-color: #FFAE00;
     border-radius: 7px;
-    -webkit-transition-duration: 0.5s; /* For Safari browsers */
     transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s; /* For Safari browsers */
     color: black !important; /* !important attribute adapted from StackOverflow user jackJoe, 2011 */
 }
 
@@ -132,8 +132,8 @@ body {
         margin: 10px;
         padding: 5px;
         text-align: center;
-        -webkit-transition-duration: 0.5s; /* For Safari browsers */
         transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5s; /* For Safari browsers */
         display: flex;
         flex-direction: column;
         position: relative;

@@ -13,6 +13,7 @@ namespace Web_App.Pages
         private readonly Web_AppContext _db;
         private readonly UserManager<IdentityUser> _UserManager;
         public IList<CheckoutItem> Items { get; set; }
+        public OrderHistory Order = new OrderHistory();
 
         public decimal Total;
         public long AmountPayable;
@@ -45,6 +46,50 @@ namespace Web_App.Pages
                 Total += (item.Quantity * item.Price);
             }
             AmountPayable = (long)Total;
+        }
+
+        // Method for processing the 'Buy' button click action
+        public async Task<IActionResult> OnPostBuyAsync()
+        {
+            var currentOrder = _db.OrderHistories.FromSqlRaw("SELECT * FROM OrderHistories")
+                .OrderByDescending(b => b.OrderNo)
+                .FirstOrDefault();
+
+            if (currentOrder == null)
+            {
+                Order.OrderNo = 1;
+            }
+            else
+            {
+                Order.OrderNo = currentOrder.OrderNo + 1;
+            }
+        
+            var user = await _UserManager.GetUserAsync(User);
+            Order.Email = user.Email;
+            _db.OrderHistories.Add(Order);
+
+            CheckoutCustomer customer = await _db
+                .CheckoutCustomers
+                .FindAsync(user.Email);
+
+            var basketItems = _db.BasketItems
+                .FromSqlRaw("SELECT * FROM BasketItems WHERE BasketID = {0}", customer.BasketID)
+                .ToList();
+
+            foreach (var item in basketItems)
+            {
+                OrderItem oi = new OrderItem
+                {
+                    OrderNo = Order.OrderNo,
+                    StockID = item.StockID,
+                    Quantity = item.Quantity
+                };
+                _db.OrderItems.Add(oi);
+                _db.BasketItems.Remove(item);
+            }
+
+            await _db.SaveChangesAsync();
+            return RedirectToPage("/Index");
         }
 
 

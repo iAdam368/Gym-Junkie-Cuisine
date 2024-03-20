@@ -1,8 +1,14 @@
 ***
 
-- Checkout system
+- Payment system
+- Order History display 
 
-- Lower resolution for images to reduce loading times 
+- Login buttons on right side of navbar
+- Dropdown menu logout button bug 
+
+- Checkout (+) & (-) buttons for adding/removing items 
+
+- map on contact page 
 
 HOMEPAGE
 - Create about us section - talking about the restaurant and its origin 
