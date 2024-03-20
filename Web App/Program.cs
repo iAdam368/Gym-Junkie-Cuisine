@@ -6,16 +6,22 @@ using Web_App.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Web_App.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllers();
+// Configure Stripe
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("StripeSettings"));
+builder.Services.AddScoped<StripePaymentService>();
+//Stripe.StripeConfiguration.ApiKey = builder.Configuration["StripeSettings:SecretKey"];
+
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<Web_AppContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Web_AppContext") ?? throw new InvalidOperationException("Connection string 'Web_AppContext' not found.")));
 
-//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-//    .AddEntityFrameworkStores<Web_AppContext>();
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
@@ -82,6 +88,8 @@ app.UseAuthentication();;
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+
 
 using (var scope = app.Services.CreateScope())
 {

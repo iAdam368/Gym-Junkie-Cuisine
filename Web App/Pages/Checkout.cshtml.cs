@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Stripe;
+using Stripe.Checkout;
 using Web_App.Data;
 using Web_App.Models;
 
@@ -17,11 +20,16 @@ namespace Web_App.Pages
 
         public decimal Total;
         public long AmountPayable;
+
+        // For stripe payment
+        private readonly StripeSettings _stripeSettings;
+        public string sessionId { get; set; }
         
-        public CheckoutModel(Web_AppContext db, UserManager<IdentityUser> UserManager)
+        public CheckoutModel(Web_AppContext db, UserManager<IdentityUser> UserManager, IOptions<StripeSettings> stripeSettings)
         {
             _db = db;
             _UserManager = UserManager;
+            _stripeSettings = stripeSettings.Value;
         }   
         
         public async Task OnGetAsync()
@@ -89,7 +97,49 @@ namespace Web_App.Pages
             }
 
             await _db.SaveChangesAsync();
-            return RedirectToPage("/Index");
+            return RedirectToPage("/CheckoutSuccess");
+        }
+
+
+
+        public IActionResult CreateCheckoutSession(string amountPayable)
+        {
+
+            StripeConfiguration.ApiKey = _stripeSettings.SecretKey;
+
+            var options = new SessionCreateOptions
+            {
+                PaymentMethodTypes = new List<string>
+                {
+                    "card",
+                },
+                LineItems = new List<SessionLineItemOptions>
+                {
+                    new SessionLineItemOptions
+                    {
+                        PriceData = new SessionLineItemPriceDataOptions
+                        {
+                            UnitAmount = Convert.ToInt32(amountPayable) * 100, // value in pence e.g. 1000 = £10
+                            Currency = "gbp",
+                            ProductData = new SessionLineItemPriceDataProductDataOptions
+                            {
+                                Name = "Prod name ***",
+                                Description = "Prod desc ***"
+                            },
+                        },
+                        Quantity = 1,
+                    },
+                },
+                Mode = "payment",
+                SuccessUrl = "https://localhost:7288/Contact/", // ***
+                CancelUrl = "https://localhost:7288/Menu",
+            };
+
+            var service = new SessionService();
+            var session = service.Create(options);
+            sessionId = session.Id;
+
+            return Redirect(session.Url);
         }
 
 

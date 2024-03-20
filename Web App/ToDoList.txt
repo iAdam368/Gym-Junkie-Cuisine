@@ -1,14 +1,18 @@
 ***
 
-- Payment system
+Payment system
+- Implement Stripe payment system 
+- Create CheckoutSuccess page
+- Redirect to CheckoutSuccess page after payment
 - Order History display 
 
-- Login buttons on right side of navbar
-- Dropdown menu logout button bug 
+- 'Move' login buttons and greeting on right side of navbar
+- Remove greeting 'Hello!' from navbar
+- Dropdown menu logout button bug
 
 - Checkout (+) & (-) buttons for adding/removing items 
 
-- map on contact page 
+- Map on contact page 
 
 HOMEPAGE
 - Create about us section - talking about the restaurant and its origin 
