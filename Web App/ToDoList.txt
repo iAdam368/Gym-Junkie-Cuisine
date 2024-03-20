@@ -1,9 +1,6 @@
 ***
 
 Payment system
-- Implement Stripe payment system 
-- Create CheckoutSuccess page
-- Redirect to CheckoutSuccess page after payment
 - Order History display 
 
 - 'Move' login buttons and greeting on right side of navbar
