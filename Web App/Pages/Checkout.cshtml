@@ -1,0 +1,60 @@
+﻿@page
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @model Web_App.Pages.CheckoutModel
+    @using Web_App.Data
+    @using Microsoft.Extensions.Options
+    @{
+        ViewData["Title"] = "Checkout";
+    }
+</head>
+
+<body>
+    <!-- Page title -->
+    <h1>Gym Junkie Cuisine Checkout</h1>
+
+    <!-- Display user's basket items, ready for checkout -->
+    <!-- Model.Items -> Model.FoodItem? *** -->
+    @if (Model.Items.Count == 0)
+    {
+        <p class="fail-text">You do not have any items in your basket. Please make a selection from the <a href="~/Menu">menu</a>!</p>
+    }
+    else
+    {
+        <form method="post">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total Bill</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        var subtotal = item.Price * item.Quantity;
+
+                        <tr>
+                            <td>@item.Item_Name</td>
+                            <td>@item.Price.ToString("C")</td>
+                            <td>@item.Quantity</td>
+                            <td>@subtotal.ToString("C")</td>
+                            <!-- Allow adjusting item totals with (+) & (-) buttons -->
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <h2>Order Total: @Model.Total.ToString("C")</h2>
+
+            <button type="submit" class="btn btn-primary" asp-page-handler="Buy">Buy</button>
+        </form>
+    }
+</body>
+
+</html>
