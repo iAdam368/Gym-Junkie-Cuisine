@@ -25,6 +25,7 @@ namespace Web_App.Pages
         private readonly StripeSettings _stripeSettings;
         public string sessionId { get; set; }
         
+
         public CheckoutModel(Web_AppContext db, UserManager<IdentityUser> UserManager, IOptions<StripeSettings> stripeSettings)
         {
             _db = db;
@@ -32,6 +33,7 @@ namespace Web_App.Pages
             _stripeSettings = stripeSettings.Value;
         }   
         
+
         public async Task OnGetAsync()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -55,6 +57,7 @@ namespace Web_App.Pages
             }
             AmountPayable = (long)Total;
         }
+
 
         // Method for processing the 'Buy' button click action
         public async Task<IActionResult> OnPostBuyAsync()
@@ -101,6 +104,7 @@ namespace Web_App.Pages
         }
 
 
+        // Reducing the quantity of item in basket on checkout screen 
         public async Task<IActionResult> OnPostRemoveAsync(int checkoutItemID)
         {
             var user = await _userManager.GetUserAsync(User);
@@ -111,64 +115,39 @@ namespace Web_App.Pages
                 .ToList()
                 .FirstOrDefault();
 
-            item.Quantity--;
-            _db.Attach(item).State = EntityState.Modified;
+            if (item.Quantity > 0)
+            {
+                item.Quantity--;
+                _db.Attach(item).State = EntityState.Modified;
+            }
+            if (item.Quantity == 0)
+            {
+                _db.BasketItems.Remove(item);
+            }
+
             await _db.SaveChangesAsync();
 
             return RedirectToPage();
         }
 
 
-/*    var item = _db.BasketItems
-            .FromSqlRaw("SELECT * FROM BasketItems WHERE StockID = {0}" + " AND BasketID = {1}", foodID, customer.BasketID)
-            .ToList()
-            .FirstOrDefault();
-
-        //var currentQuantity = _db.CheckoutItems.FromSqlRaw("").ToList().FirstOrDefault();
-
-        item.Quantity = item.Quantity - 1;
-        _db.Attach(item).State = EntityState.Modified;
-
-        try
+        // Increasing the quantity of item in basket on checkout screen 
+        public async Task<IActionResult> OnPostAddAsync(int checkoutItemID)
         {
+            var user = await _userManager.GetUserAsync(User);
+            CheckoutCustomer customer = await _db.CheckoutCustomers.FindAsync(user.Email);
+
+            var item = _db.BasketItems
+                .FromSqlRaw("SELECT * FROM BasketItems WHERE StockID = {0}" + " AND BasketID = {1}", checkoutItemID, customer.BasketID)
+                .ToList()
+                .FirstOrDefault();
+
+            item.Quantity++;
+            _db.Attach(item).State = EntityState.Modified;
             await _db.SaveChangesAsync();
+
+            return RedirectToPage();
         }
-        catch (DbUpdateConcurrencyException e)
-        {
-            throw new Exception($"Could not save changes to database, exception: ", e);
-        }
-*/
-
-            /* var user = await _userManager.GetUserAsync(User);
-             CheckoutCustomer customer = await _db.CheckoutCustomers.FindAsync(user.Email);
-
-             Items = _db.CheckoutItems.FromSqlRaw(
-                 "SELECT FoodItem.FoodID AS ID, FoodItem.Price, " +
-                 "FoodItem.FoodName AS Item_Name, " +
-                 "BasketItems.BasketID, BasketItems.Quantity " +
-                 "FROM FoodItem INNER JOIN BasketItems " +
-                 "ON FoodItem.FoodID = BasketItems.StockID " +
-                 "WHERE BasketID = {0}", customer.BasketID).ToList();
-
-             var item = _db.BasketItems
-                 .FromSqlRaw("SELECT * FROM BasketItems WHERE StockID = {0}" + " AND BasketID = {1}", foodID, customer.BasketID)
-                 .ToList()
-                 .FirstOrDefault();
-
-             var currentFoodName = _db.FoodItems.FromSqlRaw("SELECT * FROM OrderHistories");
-
-             Total = 0;
-
-             foreach (var item in Items)
-             {
-                 Total += (item.Quantity * item.Price);
-                 if (item.)
-             }
-             AmountPayable = (long)Total; */
-
-
-        
-
 
 
 

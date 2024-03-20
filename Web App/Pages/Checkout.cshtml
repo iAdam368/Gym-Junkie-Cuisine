@@ -16,7 +16,7 @@
     <!-- Page title -->
     <h1>Gym Junkie Cuisine Checkout</h1>
 
-    <!-- Display user's basket items, ready for checkout -->
+    <!-- Displaying user's basket items, ready for checkout -->
     @if (Model.Items.Count == 0)
     {
         <p class="fail-text">You do not have any items in your basket. Please make a selection from the <a href="~/Menu">menu</a>!</p>
@@ -36,19 +36,21 @@
                 <tbody>
                     @foreach (var item in Model.Items)
                     {
-                        var subtotal = item.Price * item.Quantity;
-
-                        <tr>
-                            <td>@item.Item_Name</td>
-                            <td>@item.Price.ToString("C")</td>
-                            <td>
-                                <!-- Allow adjusting item totals with (+) & (-) buttons *** -->
-                                <button type="submit" class="btn btn-secondary" asp-page-handler="Remove" asp-route-checkoutItemID="@item.ID">-</button>
-                                @item.Quantity
-                                <button type="submit" class="btn btn-secondary" asp-page-handler="Add" asp-route-checkoutItemID="@item.ID">+</button>
-                            </td>
-                            <td>@subtotal.ToString("C")</td>
-                        </tr>
+                        @if (item.Quantity > 0)
+                        {
+                            var subtotal = item.Price * item.Quantity;
+                            <tr>
+                                <td>@item.Item_Name</td>
+                                <td>@item.Price.ToString("C")</td>
+                                <td>
+                                    <!-- Adjust item totals with (-) & (+) buttons -->
+                                    <button type="submit" class="btn btn-secondary" asp-page-handler="Remove" asp-route-checkoutItemID="@item.ID">-</button>
+                                    @item.Quantity
+                                    <button type="submit" class="btn btn-secondary" asp-page-handler="Add" asp-route-checkoutItemID="@item.ID">+</button>
+                                </td>
+                                <td>@subtotal.ToString("C")</td>
+                            </tr>
+                        }
                     }
                 </tbody>
             </table>
