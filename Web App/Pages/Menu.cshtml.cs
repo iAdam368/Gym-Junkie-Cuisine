@@ -13,6 +13,9 @@ namespace Web_App.Pages
 
         private readonly UserManager<IdentityUser> _userManager; // Added for the basket feature 
         private readonly Web_AppContext _context;
+        public IList<FoodItem> FoodItem { get; set; } = default!;
+        [BindProperty]
+        public string Search { get; set; }
 
 
         // Modified for importing the identity and using the userManager 
@@ -20,12 +23,10 @@ namespace Web_App.Pages
         {
             _context = context;
             _userManager = userManager;
+
+            OnGet();
         }
 
-
-        public IList<FoodItem> FoodItem { get; set; } = default!;
-        [BindProperty]
-        public string Search { get; set; }
 
 
         public void OnGet()
@@ -38,7 +39,6 @@ namespace Web_App.Pages
             {
                 // SQL Database Exception
             }
-
         }
 
         public IActionResult OnPostSearch()
@@ -55,9 +55,10 @@ namespace Web_App.Pages
         // New method for accepting the foodID 
         // Checking for baskets and incrementing quanitity appropriately 
         // Updating the database also 
-        public async Task<IActionResult> OnPostBuyAsync(int foodID)
+        public async Task OnPostBuyAsync(int foodID)
         {
             var user = await _userManager.GetUserAsync(User);
+
             CheckoutCustomer customer = await _context
                 .CheckoutCustomers
                 .FindAsync(user.Email);
@@ -89,10 +90,10 @@ namespace Web_App.Pages
                 }
                 catch (DbUpdateConcurrencyException e)
                 {
-                    throw new Exception($"Basket not found exception ***", e);
+                    throw new Exception($"Basket not found exception ", e);
                 }
             }
-            return RedirectToPage();
+
         }
 
 

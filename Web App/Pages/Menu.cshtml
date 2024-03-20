@@ -47,7 +47,7 @@
                     <p>
                         @if (SignInManager.IsSignedIn(User))
                         {
-                            <form method="post">
+                            <form method="post" id="buyForm">
                                 <button type="submit" class="btn btn-primary" asp-page-handler="Buy" asp-route-foodID="@tblFoodItems.FoodID">
                                     Add to Basket
                                 </button>
