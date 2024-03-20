@@ -3,7 +3,7 @@
 HOMEPAGE
 - Create about us section - talking about the restaurant and its origin 
 - Fullscreen image as background
-- Showcase the menu here also 
+- Showcase the menu here also?
 
 Payment system
 - Order History display 

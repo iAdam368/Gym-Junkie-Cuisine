@@ -44,9 +44,9 @@
                                 <td>@item.Price.ToString("C")</td>
                                 <td>
                                     <!-- Adjust item totals with (-) & (+) buttons -->
-                                    <button type="submit" class="btn btn-primary btn-danger btn-sm fw-bold" asp-page-handler="Remove" asp-route-checkoutItemID="@item.ID">–</button>
+                                    <button type="submit" class="btn btn-danger btn-sm fw-bold" asp-page-handler="Remove" asp-route-checkoutItemID="@item.ID">–</button>
                                     @item.Quantity
-                                    <button type="submit" class="btn btn-primary btn-success btn-sm fw-bold" asp-page-handler="Add" asp-route-checkoutItemID="@item.ID">+</button>
+                                    <button type="submit" class="btn btn-success btn-sm fw-bold" asp-page-handler="Add" asp-route-checkoutItemID="@item.ID">+</button>
                                 </td>
                                 <td>@subtotal.ToString("C")</td>
                             </tr>

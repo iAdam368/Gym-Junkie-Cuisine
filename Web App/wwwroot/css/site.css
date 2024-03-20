@@ -248,6 +248,7 @@ body {
     margin: auto auto;
     outline: solid;
     outline-width: 1px;
+    transform: translateX(-2px);
 }
 
 /* Colour changes on hovering over the logout button */
@@ -264,5 +265,5 @@ body {
 .basket-icon {
     height: 25px;
     width: auto;
-    transform: translateX(3px);
+    transform: translateX(-1px);
 }
