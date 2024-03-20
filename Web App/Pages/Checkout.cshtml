@@ -17,7 +17,6 @@
     <h1>Gym Junkie Cuisine Checkout</h1>
 
     <!-- Display user's basket items, ready for checkout -->
-    <!-- Model.Items -> Model.FoodItem? *** -->
     @if (Model.Items.Count == 0)
     {
         <p class="fail-text">You do not have any items in your basket. Please make a selection from the <a href="~/Menu">menu</a>!</p>
@@ -31,7 +30,7 @@
                         <th>Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Total Bill</th>
+                        <th>Subtotal</th>
                     </tr>
                 </thead>
                 <tbody>

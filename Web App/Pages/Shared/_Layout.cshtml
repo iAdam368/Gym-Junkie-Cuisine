@@ -38,12 +38,18 @@
                             <!-- Code adapted from Microsoft, 2023 -->
                             @if (SignInManager.IsSignedIn(User)){
                             <!-- End of adapted code -->
-                                    @if (User.IsInRole("Admin"))
+                                @if (User.IsInRole("Admin"))
                                 {
                                     <li class="nav-item">
                                         <a class="nav-link text-danger" asp-area="" asp-page="/Admin">Admin</a>
                                     </li>
                                 }
+                            }
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-page="/Checkout">Checkout</a>
+                                </li>
                             }
                             <li>
                                 <partial name="_LoginPartial" />
