@@ -51,8 +51,10 @@
                             
                     @if (SignInManager.IsSignedIn(User))
                     {
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Checkout">Checkout</a>
+                    <li class="text-center">
+                        <a class="navbar-brand" asp-area="" asp-page="/Checkout">
+                            <img src="@Url.Content("~/img/basket.png")" class="basket-icon" alt="basket logo for the checkout">
+                        </a>
                     </li>
                     }
                              

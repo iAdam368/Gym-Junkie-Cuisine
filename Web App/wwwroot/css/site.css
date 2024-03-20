@@ -64,7 +64,7 @@ body {
 }
 
 /* Alters the color of the navigation bar item when it is hovered over, code adapted from W3Schools */
-.navbar a:hover:not(.active) {
+.nav-item a:hover:not(.active) {
     background-color: #FFAE00;
     border-radius: 7px;
     transition-duration: 0.5s;
@@ -201,7 +201,15 @@ body {
     transition-duration: 0.5s;
 }
 
-/* Setting logout button text to red */
+/* Navigation bar's logout button formatting */
 #logout {
     color: #DC3545 !important;
+    margin: auto auto;
+}
+
+/* Navigation bar's basket icon formatting */
+.basket-icon {
+    height: 25px;
+    width: auto;
+    transform: translateX(3px);
 }
