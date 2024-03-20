@@ -17,10 +17,12 @@ namespace Web_App.Data
 
         public DbSet<Web_App.Models.FoodItem> FoodItems { get; set; }
 
-        // Add Basket, BasketItem and CheckoutCustomer tables to db context
+        // Add Basket, BasketItem, CheckoutCustomer, OrderHistory and OrderItem tables to db context
         public DbSet<CheckoutCustomer> CheckoutCustomers { get; set; } = default!;
         public DbSet<Basket> Baskets { get; set; } = default!;
         public DbSet<BasketItem> BasketItems { get; set; } = default!;
+        public DbSet<OrderHistory> OrderHistories { get; set; } = default!;
+        public DbSet<OrderItem> OrderItems { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
