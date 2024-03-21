@@ -1,7 +1,7 @@
 ***
 
 HOMEPAGE
-- Fullscreen image as background - overlay message and logo.png
+- Overlay message and logo.png
 - Food images as squares - long list with dark grey
 - Showcase the menu here also?
 

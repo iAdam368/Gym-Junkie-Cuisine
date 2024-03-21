@@ -5,15 +5,19 @@ html {
     min-height: 100%;
     margin-left: 0px;
     padding-left: 0px;
+    overflow-x: hidden;
 }
 
 /* Main content formatting */
-body {
-    margin: 0;
-    padding-left: 0px;
+/* Creates enough spacing so that the footer can be seen at the bottom of the page */
+/* Code adapted from StackOverflow user Larrieux, 2016 */
+main {
+    min-height: calc(100vh - 40px);
+    margin-right: 10vw;
+    margin-left: 10vw;
 }
 
-/* Setting image size */
+/* Setting font size using screen size */
 @media (min-width: 768px) {
     html {
         font-size: 16px;
@@ -33,16 +37,10 @@ body {
     position: relative;
 }
 
-/* Creates enough spacing so that the footer can be seen at the bottom of the page */
-/* Code adapted from StackOverflow user Larrieux, 2016 */
-.content-spacing {
-    min-height: calc(100vh - 40px);
-}
-
 /* Class to format for the navigation bar rectangle */
 /* Navigation bar concepts gathered from W3Schools, 2023 */
 .navbar {
-    background-color: red;
+    border-bottom: 1px solid #212529 !important;
     position: fixed;
     width: 100%;
     top: 0;
@@ -248,7 +246,6 @@ body {
     margin: auto auto;
     outline: solid;
     outline-width: 1px;
-    transform: translateX(-2px);
 }
 
 /* Colour changes on hovering over the logout button */
@@ -266,4 +263,20 @@ body {
     height: 25px;
     width: auto;
     transform: translateX(-1px);
+}
+
+/* Background image styling */
+.bg-img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(0.6);
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: translate(-10vw, -1vh);
+}
+
+/* Overlay image over other elements */
+.ovarlay-img {
+
 }
