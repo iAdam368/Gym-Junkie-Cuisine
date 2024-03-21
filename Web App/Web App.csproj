@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\img\logo_transparent.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Pages\Shared\_Layout.cshtml.js" />
   </ItemGroup>
 
