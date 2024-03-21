@@ -216,7 +216,6 @@ main {
 .btn-grey:hover {
     color: black;
     background-color: #FFAE00;
-    border-color: #FFAE00;
     transition-duration: 0.5s;
     -webkit-transition-duration: 0.5s; /* For Safari browsers */
     
