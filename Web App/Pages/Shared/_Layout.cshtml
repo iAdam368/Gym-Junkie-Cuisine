@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
         <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico">
-    </head>
 
     <body>
 
@@ -17,51 +16,50 @@
             <div class="navbar-spacing"></div>
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
                 <div class="container">
-                    <button class="custom-toggler navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    <button class="custom-toggler navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" 
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Menu">Menu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Contact">Contact</a>
-                        </li>
-                    </ul>
-
-                    <ul class="navbar-nav ms-auto">
-                    <!-- Code adapted from Microsoft, 2023 -->
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                    <!-- End of adapted code -->
-                    @if (User.IsInRole("Admin"))
-                    {
-                            <li class="nav-item px-4">
-                                <a class="nav-link text-danger" asp-area="" asp-page="Admin/Index">Admin</a>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
                             </li>
-                    }
-                    }
-                            
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                            <li class="align-self-center">
-                        <a class="" asp-area="" asp-page="/Checkout">
-                            <img src="@Url.Content("~/img/basket.png")" class="basket-icon" alt="basket logo for the checkout">
-                        </a>
-                    </li>
-                    }
-                             
-                    <li class="nav-item">
-                        <partial class="nav-link" name="_LoginPartial" />
-                    </li>
-                </ul>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Menu">Menu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Contact">Contact</a>
+                            </li>
+                        </ul>
 
-                </div>
+                        <ul class="navbar-nav ms-auto">
+                            <!-- Code adapted from Microsoft, 2023 -->
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item px-4">
+                                    <a class="nav-link text-danger" asp-area="" asp-page="Admin/Index">Admin</a>
+                                </li>
+                            }
+                            }
+                            
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                            <li class="align-self-center">
+                                <a class="" asp-area="" asp-page="/Checkout">
+                                    <img src="@Url.Content("~/img/basket.png")" class="basket-icon" alt="basket logo for the checkout">
+                                </a>
+                            </li>
+                            }
+                             
+                            <li class="nav-item">
+                                <partial class="nav-link" name="_LoginPartial" />
+                            </li>
+                        </ul>
+
+                    </div>
                 </div>
             </nav>
         </header>
@@ -84,12 +82,12 @@
             <div class="container p-4 pb-0">
                 <!-- Section: Social media -->
                 <section class="mb-4">
-                    <a class="btn btn-outline-light btn-floating m-1" href="https://en-gb.facebook.com/" role="button" target="_blank"><i class="fa fa-facebook"></i></a>
-                    <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/?lang=en-GB/" role="button" target="_blank"><i class="fa fa-twitter"></i></a>
-                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.google.co.uk/" role="button" target="_blank"><i class="fa fa-google"></i></a>
-                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button" target="_blank"><i class="fa fa-instagram"></i></a>
-                    <a class="btn btn-outline-light btn-floating m-1" href="https://uk.linkedin.com/" role="button" target="_blank"><i class="fa fa-linkedin"></i></a>
-                    <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/iAdam368?tab=repositories/" role="button" target="_blank"><i class="fa fa-github"></i></a>
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://en-gb.facebook.com/" role="button" target="_blank"></a>
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/?lang=en-GB/" role="button" target="_blank"></a>
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.google.co.uk/" role="button" target="_blank"></a>
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button" target="_blank"></a>
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://uk.linkedin.com/" role="button" target="_blank"></a>
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/iAdam368?tab=repositories/" role="button" target="_blank"></a>
                 </section>
                 <!-- Section: Social media -->
             </div>
