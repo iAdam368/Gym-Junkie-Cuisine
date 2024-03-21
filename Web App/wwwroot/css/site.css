@@ -43,6 +43,11 @@
     html {
         /* font-size: 20px ?? *** */
     }
+
+    article {
+        padding-left: 20vw;
+        padding-right: 20vw;
+    }
 }
 
 
@@ -307,7 +312,7 @@ main {
     transform: translateX(-1px);
 }
 
-/* Background image styling */
+/* Homepage's background image styling */
 .bg-img {
     width: 130%;
     height: 100vh;
@@ -318,7 +323,7 @@ main {
     transform: translate(-12vw, -3vh);
 }
 
-/* Styling for restaurant slogan text *** */
+/* Styling for restaurant logo overlay */
 .overlay {
     position: absolute;
     margin-left: auto;
@@ -326,4 +331,21 @@ main {
     left: 0;
     right: 0;
     text-align: center;
+}
+
+/* Formatting for the images container */
+.img-container {
+    background-color: #212529;
+    padding-top: 2.5vh;
+    padding-bottom: 2.5vh;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    border-radius: 7px;
+}
+
+/* Formatting for individual image frames */
+.img-frame {
+    padding-top: 2.5vh;
+    padding-bottom: 2.5vh;
+    border-radius: 11vw;
 }

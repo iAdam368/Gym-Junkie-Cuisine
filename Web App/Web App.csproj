@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\img\logo_transparent.png" />
+    <Content Remove="wwwroot\img\mixed_berry_milkshake.jpg" />
   </ItemGroup>
 
   <ItemGroup>
