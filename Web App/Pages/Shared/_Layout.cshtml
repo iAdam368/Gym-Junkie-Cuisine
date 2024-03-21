@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
 
     <head>
         <meta charset="utf-8">
@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
         <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico">
+    </head>
 
     <body>
 
@@ -65,18 +66,18 @@
         </header>
         <!-- Navigation -->
 
-    <!-- Main body-->
-    <main class="pb-3">
-        @RenderBody()
-    </main>
-    <!-- Main body -->
+        <!-- Main body-->
+        <main class="pb-3">
+            @RenderBody()
+        </main>
+        <!-- Main body -->
 
-    <!-- Button that takes the user to the top of the page using JavaScript -->
-    <div class="floating-button">
-        <button id="to_top_button" class="btn btn-grey" onclick="toTop()">Back to Top</button>
-    </div>
+        <!-- Button that takes the user to the top of the page using JavaScript -->
+        <div class="floating-button">
+            <button id="to_top_button" class="btn btn-grey" onclick="toTop()">Back to Top</button>
+        </div>
 
-    <!-- Footer -->
+        <!-- Footer -->
         <footer class="bg-dark text-center text-white round-corner-top">
             <!-- Grid container -->
             <div class="container p-4 pb-0">
@@ -105,15 +106,14 @@
                 </p>
                 }
                 <p>
-                    <a href="https://jigsaw.w3.org/css-validator/check/referer">
-                        <img style="border:0;width:88px;height:31px"
-                            src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
-                            alt="Valid CSS!" />
-                    </a>
-                </p>
-                <p>
                     <a href="https://validator.w3.org/#validate_by_uri/">• Validate HTML</a>
                 </p>
+                <p>
+                    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                        <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" />
+                    </a>
+                </p>
+
             </div> 
             <!-- Copyright -->
 
