@@ -1,5 +1,3 @@
-***
 
-Payment system
-- Delete button for a menu item at checkout (bin icon)
 - Order History display 
+

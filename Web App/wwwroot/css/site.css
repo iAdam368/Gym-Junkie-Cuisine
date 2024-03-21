@@ -312,6 +312,25 @@ main {
     transform: translateX(-1px);
 }
 
+/* Checkout page's menu item delete icon formatting */
+.delete-icon {
+    height: 27px;
+    width: auto;
+
+}
+
+/* Delete button formatting */
+/* Removing button formatting as an image was used */
+#delete-button {
+    background: none;
+    color: inherit;
+    font: inherit;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+}
+
 /* Homepage's background image styling */
 .bg-img {
     width: 130%;

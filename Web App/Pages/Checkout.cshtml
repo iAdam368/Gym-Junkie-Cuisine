@@ -31,6 +31,7 @@
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Subtotal</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,11 +45,16 @@
                                 <td>@item.Price.ToString("C")</td>
                                 <td>
                                     <!-- Adjust item totals with (-) & (+) buttons -->
-                                    <button type="submit" class="btn btn-danger btn-sm fw-bold" asp-page-handler="Remove" asp-route-checkoutItemID="@item.ID">–</button>
+                                    <button type="submit" class="btn btn-danger btn-sm fw-bold" asp-page-handler="Reduce" asp-route-checkoutItemID="@item.ID">–</button>
                                     @item.Quantity
                                     <button type="submit" class="btn btn-success btn-sm fw-bold" asp-page-handler="Add" asp-route-checkoutItemID="@item.ID">+</button>
                                 </td>
                                 <td>@subtotal.ToString("C")</td>
+                                <td>
+                                    <button id="delete-button" type="submit" asp-page-handler="Delete" asp-route-checkoutItemID="@item.ID">
+                                        <img class="delete-icon" src="@Url.Content("~/img/delete-icon.png")" alt="menu item delete icon">
+                                    </button>
+                                </td>
                             </tr>
                         }
                     }

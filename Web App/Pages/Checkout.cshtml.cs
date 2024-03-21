@@ -104,8 +104,8 @@ namespace Web_App.Pages
         }
 
 
-        // Reducing the quantity of item in basket on checkout screen 
-        public async Task<IActionResult> OnPostRemoveAsync(int checkoutItemID)
+        // Reducing the quantity of an item in basket on checkout screen 
+        public async Task<IActionResult> OnPostReduceAsync(int checkoutItemID)
         {
             var user = await _userManager.GetUserAsync(User);
             CheckoutCustomer customer = await _db.CheckoutCustomers.FindAsync(user.Email);
@@ -131,7 +131,7 @@ namespace Web_App.Pages
         }
 
 
-        // Increasing the quantity of item in basket on checkout screen 
+        // Increasing the quantity of an item in basket on checkout screen 
         public async Task<IActionResult> OnPostAddAsync(int checkoutItemID)
         {
             var user = await _userManager.GetUserAsync(User);
@@ -144,6 +144,26 @@ namespace Web_App.Pages
 
             item.Quantity++;
             _db.Attach(item).State = EntityState.Modified;
+            await _db.SaveChangesAsync();
+
+            return RedirectToPage();
+        }
+
+
+
+
+        // Deleting an item from the basket
+        public async Task<IActionResult> OnPostDeleteAsync(int checkoutItemID)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            CheckoutCustomer customer = await _db.CheckoutCustomers.FindAsync(user.Email);
+
+            var item = _db.BasketItems
+                .FromSqlRaw("SELECT * FROM BasketItems WHERE StockID = {0}" + " AND BasketID = {1}", checkoutItemID, customer.BasketID)
+                .ToList()
+                .FirstOrDefault();
+
+            _db.BasketItems.Remove(item);
             await _db.SaveChangesAsync();
 
             return RedirectToPage();
