@@ -1,5 +1,4 @@
 /* Responsive design formatting for small mobile devices */
-/* html to overfillx hidden *** and using media @ for iphone se */
 @media (min-width: 350px) {
     .navbar-expand-sm, .navbar-toggleable-sm {
         width: 87.5% !important;
@@ -40,8 +39,13 @@
 
 /* Setting responsive design formatting for larger screens with width 1500px+ */
 @media (min-width: 1500px) {
-    html {
-        /* font-size: 20px ?? *** */
+    body {
+        /* ?? *** */
+        font-size: 18px;
+    }
+
+    #logout {
+        font-size: 18px;
     }
 
     article {
@@ -196,27 +200,20 @@ main {
 
 /* Formatting of a floating button (Back to Top button) */
 .floating-button {
-    bottom: 60px;
+    bottom: 20px;
     right: 20px;
     position: fixed;
 }
 
 /* Formatting of gold button */
-.btn-gold {
+.btn-grey {
     color: white;
-    background-color: #1A1E21;
-    border-color: #1A1E21;
-}
-
-.btn-check:focus + .btn-primary, .btn-primary:focus {
-    color: #fff;
-    background-color: #0b5ed7;
-    border-color: #0a58ca;
-    
+    background-color: #212529;
+    border-color: transparent;
 }
 
 /* Formatting on gold button hover */
-.btn-gold:hover {
+.btn-grey:hover {
     color: black;
     background-color: #FFAE00;
     border-color: #FFAE00;
@@ -226,7 +223,7 @@ main {
 }
 
 /* Box shadow applied on clicking the button */
-.btn-gold:focus {
+.btn-grey:focus {
     box-shadow: 0 0 0 0.25rem rgba(255, 210, 115, 0.7) !important;
 }
 
@@ -280,11 +277,12 @@ main {
 }
 
 /* Enabling change of colour on authentication buttons in the navbar */
-#register:is(:hover), #login:is(:hover), #logout:is(:hover), #manage:is(:hover) {
+#register:is(:hover), #login:is(:hover), #manage:is(:hover) {
     background-color: #FFAE00 !important;
+    border-radius: 7px;
     color: black !important;
-    -webkit-transition-duration: 0.5s; /* For Safari browsers */
     transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s; /* For Safari browsers */
 }
 
 /* Navigation bar's logout button formatting */

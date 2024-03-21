@@ -43,7 +43,7 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddRazorPages()
     .AddRazorPagesOptions(options =>
     {
-        options.Conventions.AuthorizeFolder("/MenuModify", "RequireAdmins");
+        options.Conventions.AuthorizeFolder("/Admin", "RequireAdmins");
     });
 
 

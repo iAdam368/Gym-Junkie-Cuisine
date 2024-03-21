@@ -1,3 +1,10 @@
 
+- CSS & HTML Validation 
+
+- Edit footer
+
 - Order History display 
 
+MAP
+- Third party JavaScript api
+- A static map image, with suitable alternate text must be displayed if JavaScript is disabled. 
