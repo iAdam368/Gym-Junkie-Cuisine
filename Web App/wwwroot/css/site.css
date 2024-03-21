@@ -1,3 +1,26 @@
+/* Responsive design formatting for small mobile devices */
+/* html to overfillx hidden *** and using media @ for iphone se */
+@media (min-width: 350px) {
+    .navbar-expand-sm, .navbar-toggleable-sm {
+        width: 87.5% !important;
+    }
+
+    html {
+        overflow-x: hidden !important;
+    }
+
+    body {
+        overflow-x: hidden !important;
+    }
+}
+
+/* Setting font size for screens with 768px+ width */
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
 /* HTML page formatting */
 html {
     font-size: 14px;
@@ -15,13 +38,6 @@ main {
     min-height: calc(100vh - 40px);
     margin-right: 10vw;
     margin-left: 10vw;
-}
-
-/* Setting font size using screen size */
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
 }
 
 /* Image sizing formatting */
@@ -42,7 +58,7 @@ main {
 .navbar {
     border-bottom: 1px solid #212529 !important;
     position: fixed;
-    width: 100%;
+    width: 100% !important;
     top: 0;
     z-index: 20;
     border-radius: 0px 0px 7px 7px;
@@ -116,6 +132,7 @@ main {
 }
 
 /* Flex container styling for individual menu items */
+/* Implementing responsive design */
 .flex-container {
     color: white;
     display: flex;
@@ -267,13 +284,13 @@ main {
 
 /* Background image styling */
 .bg-img {
-    width: 100vw;
+    width: 130%;
     height: 100vh;
     object-fit: cover;
     filter: brightness(0.6);
     margin: 0 !important;
     padding: 0 !important;
-    transform: translate(-10vw, -1vh);
+    transform: translate(-12vw, -3vh);
 }
 
 /* Overlay image over other elements */
