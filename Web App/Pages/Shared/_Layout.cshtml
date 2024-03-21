@@ -2,13 +2,12 @@
 <html lang="en">
 
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>@ViewData["Title"] - Gym Junkie Cuisine</title>
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> *** -->
-        <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico"/>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
+        <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico">
     </head>
 
     <body>
@@ -69,7 +68,7 @@
         <!-- Navigation -->
 
     <!-- Main body-->
-    <main role="main" class="pb-3">
+    <main class="pb-3">
         @RenderBody()
     </main>
     <!-- Main body -->
@@ -108,7 +107,11 @@
                 </p>
                 }
                 <p>
-                    <a href="https://jigsaw.w3.org/css-validator/">• Validate CSS</a>
+                    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                        <img style="border:0;width:88px;height:31px"
+                            src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+                            alt="Valid CSS!" />
+                    </a>
                 </p>
                 <p>
                     <a href="https://validator.w3.org/#validate_by_uri/">• Validate HTML</a>
